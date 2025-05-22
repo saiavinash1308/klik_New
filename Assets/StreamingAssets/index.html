@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Your Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background-color: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .card h2 {
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin: 0.5rem;
+    }
+    .btn-pay {
+      background-color: #3b82f6;
+      color: white;
+    }
+    .btn-pay:hover {
+      background-color: #2563eb;
+    }
+    .btn-cancel {
+      background-color: #e5e7eb;
+      color: #111827;
+    }
+    .btn-cancel:hover {
+      background-color: #d1d5db;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Optional: Spinner animation inside loading */
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 1rem auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="confirmation">
+    <h2>Confirm Your Payment</h2>
+    <p id="amount-text">You are about to pay <strong>₹...</strong>. Proceed?</p>
+    <button id="pay-button" class="btn btn-pay">Yes, Pay Now</button>
+    <button id="cancel-button" class="btn btn-cancel">Cancel</button>
+  </div>
+
+  <div class="card hidden" id="loading">
+    <h2>Processing Payment...</h2>
+    <div class="spinner"></div>
+    <p>Please wait while we confirm your payment.</p>
+  </div>
+
+  <div class="card hidden" id="success">
+    <h2>Payment Successful 🎉</h2>
+    <p>Thank you! Your payment was successful.</p>
+    <button class="btn btn-pay" onclick="goBackToUnity('success')">Go Back</button>
+  </div>
+
+  <div class="card hidden" id="failure">
+    <h2>Payment Failed ❌</h2>
+    <p>Oops! Your payment could not be completed.</p>
+    <button class="btn btn-pay" onclick="goBackToUnity('failed')">Go Back</button>
+  </div>
+
+  <script>
+    const payBtn = document.getElementById('pay-button');
+    const cancelBtn = document.getElementById('cancel-button');
+    const confirmDiv = document.getElementById('confirmation');
+    const loadingDiv = document.getElementById('loading');
+    const successDiv = document.getElementById('success');
+    const failureDiv = document.getElementById('failure');
+    const amountText = document.getElementById('amount-text');
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const orderId = queryParams.get('orderId');
+    const amount = queryParams.get('amount'); // amount in paise
+
+    if (!orderId || !amount) {
+      alert("Invalid payment info. Missing orderId or amount.");
+      confirmDiv.innerHTML = "<h2>Error</h2><p>Invalid payment details provided.</p>";
+      payBtn.disabled = true;
+    } else {
+      const rupeeAmount = (parseInt(amount)).toLocaleString('en-IN', {
+        style: 'currency',
+        currency: 'INR'
+      });
+      amountText.innerHTML = `You are about to pay <strong>${rupeeAmount}</strong>. Proceed?`;
+    }
+
+    payBtn.onclick = () => {
+      payBtn.disabled = true;
+      cancelBtn.disabled = true;
+      confirmDiv.classList.add('hidden');
+      loadingDiv.classList.remove('hidden');
+
+      const options = {
+        key: "rzp_live_MCNGWPQMBHG7sC",
+        amount: amount,
+        currency: "INR",
+        method: "upi",
+        name: "Aviator By Klik Games",
+        description: "Transaction",
+        image: "https://drive.google.com/file/d/1i5euBwA0RKVpH5iRzkQkIHmNOSyeCFbZ/view",
+        order_id: orderId,
+        handler: function (response) {
+          fetch("https://backend-avi.fivlog.space/api/payments/updateRazr", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_signature: response.razorpay_signature,
+              status: 'paid'
+            })
+          }).then(async(response) => {
+            const data = await response.json();
+            loadingDiv.classList.add('hidden');
+            if (response.ok){
+              successDiv.classList.remove('hidden');
+            }
+            else{
+              failureDiv.classList.remove('hidden');
+            }
+          }).catch(() => {
+            loadingDiv.classList.add('hidden');
+            failureDiv.classList.remove('hidden');
+          });
+        },
+        modal: {
+          ondismiss: function () {
+            fetch("https://backend-avi.fivlog.space/api/payments/updateRazr", {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ status: 'failed' })
+            }).then(() => {
+              loadingDiv.classList.add('hidden');
+              failureDiv.classList.remove('hidden');
+            }).catch(() => {
+              loadingDiv.classList.add('hidden');
+              failureDiv.classList.remove('hidden');
+            });
+          }
+        },
+        theme: {
+          color: "#3b82f6"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    };
+
+    cancelBtn.onclick = () => {
+      confirmDiv.classList.add('hidden');
+      failureDiv.classList.remove('hidden');
+    };
+
+    function goBackToUnity(status) {
+      window.location.href = `uniwebview://payment_${status}`;
+    }
+  </script>
+</body>
+</html>
