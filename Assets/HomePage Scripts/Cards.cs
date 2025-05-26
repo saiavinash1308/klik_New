@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BannerLoader : MonoBehaviour
 {
-    private string apiUrl = "http://localhost:3001/api/banner/fetchallbanners";
+    private string apiUrl = "https://backend-ciq1.onrender.com/banner/fetchallbanners";
+    //private string apiUrl = "http://localhost:3001/api/banner/fetchallbanners";
     private string baseImageUrl = ""; 
 
     public GameObject imagePrefab; 

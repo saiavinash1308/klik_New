@@ -44,7 +44,6 @@ public class HomePageManager : MonoBehaviour
     public Sprite[] avatarSprites;
     public Image[] avatarPreviewImages;
 
-    private const string baseUrl = "http://localhost:3000/";
 
     void Start()
     {

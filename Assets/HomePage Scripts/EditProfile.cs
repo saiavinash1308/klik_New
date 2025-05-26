@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class EditUserProfile : MonoBehaviour
 {
-    public string APIIUrl = "http://localhost:3001/api/auth/profile";
+    public string APIIUrl = "https://backend-ciq1.onrender.com/api/auth/profile";
+    //public string APIIUrl = "http://localhost:3001/api/auth/profile";
 
     public TextMeshProUGUI nameInput;
     public Button saveButton;

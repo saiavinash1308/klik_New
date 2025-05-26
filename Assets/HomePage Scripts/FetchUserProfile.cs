@@ -11,7 +11,8 @@ public class FetchUserProfile : MonoBehaviour
     public Text matchesWonText;
     public Text matchesLostText;
 
-    private const string apiUrl = "http://localhost:3001/api/user/profile"; 
+    private const string apiUrl = "https://backend-ciq1.onrender.com/api/user/profile"; 
+    //private const string apiUrl = "http://localhost:3001/api/user/profile"; 
     private const string tokenKey = "AuthToken"; 
 
     void Start()

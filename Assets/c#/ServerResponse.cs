@@ -253,10 +253,12 @@ public class ServerResponse : MonoBehaviour
 
     private void FindAndMoveThePawn(int diceValue, int pawnNo, PawnType pawnType)
     {
+        print("Piece moved");
         foreach (var pawn in PlayerInfo.instance.pawnInstances)
         {
             if (pawn.pawnType == pawnType && pawn.pawnNumber == pawnNo)
             {
+                print("Pawn Coroutine called");
                 StartCoroutine(pawn.MoveTo(diceValue, true));
             }
         }

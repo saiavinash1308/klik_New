@@ -45,7 +45,7 @@ public class WithdrawPayment : MonoBehaviour
 
     private IEnumerator SendRequest(string authToken, string amount)
     {
-        string url = "https://server.fivlog.space/api/transactions/createwithdraw";  // Replace with your actual endpoint
+        string url = "https://backend-ciq1.onrender.com/api/transactions/createwithdraw"; 
 
         // Prepare JSON data
         string jsonData = JsonUtility.ToJson(new UserTransaction { amount = amount });

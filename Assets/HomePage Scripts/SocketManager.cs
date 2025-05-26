@@ -63,7 +63,8 @@ public class SocketManager : MonoBehaviour
 
     internal void InitializeSocket()
     {
-        var url = "http://localhost:3000/";
+        //var url = "http://localhost:3000/";
+        var url = "https://backend-production-51f8.up.railway.app/";
         var uri = new Uri(url);
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {

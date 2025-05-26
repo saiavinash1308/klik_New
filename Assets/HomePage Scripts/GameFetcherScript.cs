@@ -19,7 +19,8 @@ public class GameFetcherScript : MonoBehaviour
     public Button confirmButton; 
     public Button cancelButton;
 
-    private const string baseUrl = "http://localhost:3001/api/game/fetchGame/";
+    private const string baseUrl = "https://backend-ciq1.onrender.com/api/game/fetchGame/";
+    //private const string baseUrl = "http://localhost:3001/api/game/fetchGame/";
     public HomePageManager HomePageManager;
     [SerializeField]
     private SocketManager socketManager;
