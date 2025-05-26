@@ -28,13 +28,14 @@ public abstract class PawnMovementController : MonoBehaviour
     }
     public IEnumerator MoveTo(int moveToIndex, bool fromServer = false)
     {
-
+        print("Move to Pawn Called");
         CheckAndGetOutOfSafeSpot();
         //PawnTimer.stopTimer = true;
         Vector3 lastPostion = Vector3.zero;
         float distance = 0;
 
         if (!fromServer)
+            print("Emit Event Piece");
             ServerRequest.instance.MovePlayer(moveToIndex, pawnNumber, (int)pawnType);
         //move one by one
         for (int i = 0; i < moveToIndex; i++)

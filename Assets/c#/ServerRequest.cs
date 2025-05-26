@@ -32,20 +32,28 @@ public class ServerRequest : MonoBehaviour
 
     public void RollDice(int diceValue, PawnType pawn)
     {
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            print("RollDice Emit");
         if (serverConnection) return;
         if (diceValue == 6)
         {
-            socket.EmitEvent(ServerRequestApi.ROLL_DICE.ToString(), JsonConvert.SerializeObject(diceValue));
+                print("Emitted 6");
+                var data = new { diceValue };
+            socket.EmitEvent(ServerRequestApi.ROLL_DICE.ToString(), JsonConvert.SerializeObject(data));
         }
         else if (AvoidSwitchingPlayers(diceValue, pawn))
         {
+                print("Emit !6");
             var diceWithPlayers = new { diceValue, pawn, PlayerInfo.instance.players };
             socket.EmitEvent(ServerRequestApi.ROLL_DICE.ToString(), JsonConvert.SerializeObject(diceWithPlayers));
         }
         else
         {
+                print("Switched Called");
             SwitchPlayers(diceValue);
         }
+        });
     }
 
     private void SwitchPlayers(int diceValue)
@@ -124,6 +132,7 @@ public class ServerRequest : MonoBehaviour
 
     public void MovePlayer(int diceValue, int pawnNo, int pawnType)
     {
+        print("Move Player Emitted");
         if (serverConnection) return;
         var generalInfo = new { diceValue, pawnNo, LocalPlayer.playerId };
         socket.EmitEvent(ServerRequestApi.MOVE_PLAYER.ToString(), JsonConvert.SerializeObject(generalInfo));

@@ -1,0 +1,217 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\mk327\\onedrive\\desktop\\fivlog\\klik_new\\assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\mk327\\onedrive\\desktop\\fivlog\\klik_new\\assets\\c#\\pawnmovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\pawnmovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\serverapisenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverapisenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\mk327\\onedrive\\desktop\\fivlog\\klik_new\\assets\\c#\\pawninputanalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\pawninputanalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\analyseandregisteronlineplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\analyseandregisteronlineplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\dicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\dicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\twoplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\twoplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\temponlineplayersdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\temponlineplayersdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\assets\\c#\\profilepicture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\profilepicture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PawnInputAnalizer.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\PawnInputAnalizer.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\PawnInputAnalizer.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\PawnInputAnalizer.cs",
+              "RelativeToolTip": "Assets\\c#\\PawnInputAnalizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:11:58.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PawnMovementController.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\PawnMovementController.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\PawnMovementController.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\PawnMovementController.cs",
+              "RelativeToolTip": "Assets\\c#\\PawnMovementController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwCYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:11:10.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServerApisEnum.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerApisEnum.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ServerApisEnum.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerApisEnum.cs",
+              "RelativeToolTip": "Assets\\c#\\ServerApisEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:48:30.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServerResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerResponse.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ServerResponse.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerResponse.cs",
+              "RelativeToolTip": "Assets\\c#\\ServerResponse.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADgvxkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:38:05.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProfilePicture.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ProfilePicture.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ProfilePicture.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ProfilePicture.cs",
+              "RelativeToolTip": "Assets\\c#\\ProfilePicture.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:50:50.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TempOnlinePlayersData.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\TempOnlinePlayersData.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\TempOnlinePlayersData.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\TempOnlinePlayersData.cs",
+              "RelativeToolTip": "Assets\\c#\\TempOnlinePlayersData.cs",
+              "ViewState": "AgIAAAEAAAAgMzMzM/MkwAwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:58:58.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TwoPlayers.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\TwoPlayers.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\TwoPlayers.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\TwoPlayers.cs",
+              "RelativeToolTip": "Assets\\c#\\TwoPlayers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:50:00.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DiceController.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\DiceController.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\DiceController.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\DiceController.cs",
+              "RelativeToolTip": "Assets\\c#\\DiceController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAIA1wEgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:42:52.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServerRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerRequest.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ServerRequest.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\ServerRequest.cs",
+              "RelativeToolTip": "Assets\\c#\\ServerRequest.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAvwIkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:49:09.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\Player.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\Player.cs",
+              "RelativeToolTip": "Assets\\c#\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:55:18.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AnalyseAndRegisterOnlinePlayers.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "RelativeToolTip": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "ViewState": "AgIAAD8AAAAANjMzM9MwwGIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:44:23.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UiManager.cs",
+              "DocumentMoniker": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\UiManager.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\UiManager.cs",
+              "ToolTip": "C:\\Users\\mk327\\OneDrive\\Desktop\\Fivlog\\klik_New\\Assets\\c#\\UiManager.cs",
+              "RelativeToolTip": "Assets\\c#\\UiManager.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAgwDIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:37:48.026Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

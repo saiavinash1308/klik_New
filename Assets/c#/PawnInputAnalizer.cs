@@ -3,6 +3,7 @@ public class PawnInputAnalizer : PawnMovementController
 {
     public virtual void OnClick()
     {
+        print("On Click Pawn Called");
         CheckHome();
         if (!isLeftTheHouse)
             return;

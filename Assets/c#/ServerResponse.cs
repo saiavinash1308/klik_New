@@ -77,6 +77,7 @@ public class ServerResponse : MonoBehaviour
             }
 
             AnalyseAndRegisterOnlinePlayers.instance.AnaliysisAndRegistration(allPlayersId, profiles);
+            ServerRequest.instance.OnGameStarted();
             print("Game started");
         }
         catch (Exception error)
@@ -86,11 +87,39 @@ public class ServerResponse : MonoBehaviour
     }
 
 
+    //private void SwitchPlayers(SocketIOResponse e)
+    //{
+    //    string responseData = e.GetValue<string>();
+    //    print("Switched Player"+ e);
+    //    JObject data = ParseData(e);
+
+    //    string nextPlayerId = JsonConvert.DeserializeObject<string>(data["nextPlayerId"].ToString());
+    //    print("NextPlayerId:"+ nextPlayerId);
+    //    int diceValue = int.Parse(data["diceValue"].ToString());
+
+    //    PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
+    //    Debug.Log("#SwitchPawns: " + currentPawn);
+
+    //    if (PlayerInfo.instance.selectedPawn == currentPawn)
+    //        DiceController.instance.playerMovementIsFinished = true;
+
+    //    DiceController.instance.currentPawn = currentPawn;
+    //    DiceController.instance.UpdateValue();
+    //    StartCoroutine(DiceController.instance.RollDice(diceValue));
+    //    StartCoroutine(PawnTimer.instance.Timer(currentPawn));
+    //}
     private void SwitchPlayers(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
+        // Get the array of arguments passed to the event
+        string jsonString = e.GetValue<string>(); // This works if it's a single string in the array
+        print("Switched Player: " + jsonString);
 
-        string nextPlayerId = JsonConvert.DeserializeObject<string>(data["nextPlayerId"].ToString());
+        // Parse the JSON string
+        JObject data = JObject.Parse(jsonString);
+
+        string nextPlayerId = data["nextPlayerId"].ToString();
+        print("NextPlayerId: " + nextPlayerId);
+
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
@@ -105,9 +134,12 @@ public class ServerResponse : MonoBehaviour
         StartCoroutine(PawnTimer.instance.Timer(currentPawn));
     }
 
+
     private void RollDice(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
+        string jsonString = e.GetValue<string>();
+        print("Roll Dice Listner Called");
+        JObject data = JObject.Parse(jsonString);
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         Debug.Log("#RollDice: " + diceValue);
@@ -126,7 +158,8 @@ public class ServerResponse : MonoBehaviour
 
     private void AvoidSwitchingPlayer(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
+        string jsonString = e.GetValue<string>();
+        JObject data = JObject.Parse(jsonString);
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         StartCoroutine(DiceController.instance.RollDice(diceValue));
@@ -134,9 +167,10 @@ public class ServerResponse : MonoBehaviour
 
     private void PlayerFinishedMoving(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
+        string jsonString = e.GetValue<string>();
+        JObject data = JObject.Parse(jsonString);
 
-        string nextPlayerId = JsonConvert.DeserializeObject<string>(data["nextPlayerId"].ToString());
+        string nextPlayerId = data["nextPlayerId"].ToString();
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
@@ -152,8 +186,9 @@ public class ServerResponse : MonoBehaviour
 
     private void RegisterPlayerId(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
-        LocalPlayer.playerId = JsonConvert.DeserializeObject<string>(data["id"].ToString());
+        string jsonString = e.GetValue<string>();
+        JObject data = JObject.Parse(jsonString);
+        LocalPlayer.playerId = data["id"].ToString();
 
         UiManager.instance.UpdateUi();
         LocalPlayer.SaveGame();
@@ -202,11 +237,13 @@ public class ServerResponse : MonoBehaviour
 
     private void PlayerMoved(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
+        string jsonString = e.GetValue<string>();
+        print("Player Moved" + jsonString);
+        JObject data = JObject.Parse(jsonString);
 
         int diceValue = int.Parse(data["diceValue"].ToString());
         int pawnNo = int.Parse(data["pawnNo"].ToString());
-        string playerId = JsonConvert.DeserializeObject<string>(data["playerId"].ToString());
+        string playerId = data["playerId"].ToString();
 
         PawnType pawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
         Debug.Log($"Pawn Movement | Dice: {diceValue}, PawnNo: {pawnNo}");
