@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using SocketIOClient;
 using System.Linq;
 using System.Security.Cryptography;
+using UnityEngine.UIElements;
 
 public class ServerResponse : MonoBehaviour
 {
@@ -75,10 +76,12 @@ public class ServerResponse : MonoBehaviour
 
                 print($"User: {username}, Socket ID: {socketId}");
             }
-
-            AnalyseAndRegisterOnlinePlayers.instance.AnaliysisAndRegistration(allPlayersId, profiles);
-            ServerRequest.instance.OnGameStarted();
-            print("Game started");
+            MainThreadDispatcher.Enqueue(() =>
+            {
+                AnalyseAndRegisterOnlinePlayers.instance.AnaliysisAndRegistration(allPlayersId, profiles);
+                print("Game started");
+            });
+            
         }
         catch (Exception error)
         {
@@ -125,13 +128,18 @@ public class ServerResponse : MonoBehaviour
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
         Debug.Log("#SwitchPawns: " + currentPawn);
 
-        if (PlayerInfo.instance.selectedPawn == currentPawn)
-            DiceController.instance.playerMovementIsFinished = true;
 
-        DiceController.instance.currentPawn = currentPawn;
-        DiceController.instance.UpdateValue();
-        StartCoroutine(DiceController.instance.RollDice(diceValue));
-        StartCoroutine(PawnTimer.instance.Timer(currentPawn));
+
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            if (PlayerInfo.instance.selectedPawn == currentPawn)
+                DiceController.instance.playerMovementIsFinished = true;
+                DiceController.instance.currentPawn = currentPawn;
+                DiceController.instance.UpdateValue();
+                StartCoroutine(DiceController.instance.RollDice(diceValue));
+                StartCoroutine(PawnTimer.instance.Timer(currentPawn));
+        });
+        
     }
 
 
@@ -143,7 +151,11 @@ public class ServerResponse : MonoBehaviour
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         Debug.Log("#RollDice: " + diceValue);
-        StartCoroutine(DiceController.instance.RollDice(diceValue));
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            StartCoroutine(DiceController.instance.RollDice(diceValue));
+        });
+       
     }
 
     private void OnPlayerWin(SocketIOResponse e)
@@ -176,12 +188,17 @@ public class ServerResponse : MonoBehaviour
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
         Debug.Log("#PawnFinishedMoving: " + currentPawn);
 
-        if (PlayerInfo.instance.selectedPawn == currentPawn)
-            DiceController.instance.playerMovementIsFinished = true;
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            if (PlayerInfo.instance.selectedPawn == currentPawn)
+                DiceController.instance.playerMovementIsFinished = true;
 
-        DiceController.instance.currentPawn = currentPawn;
-        DiceController.instance.UpdateValue();
-        StartCoroutine(PawnTimer.instance.Timer(currentPawn));
+            DiceController.instance.currentPawn = currentPawn;
+            DiceController.instance.UpdateValue();
+
+            StartCoroutine(PawnTimer.instance.Timer(currentPawn));
+            
+        });
     }
 
     private void RegisterPlayerId(SocketIOResponse e)
@@ -259,7 +276,10 @@ public class ServerResponse : MonoBehaviour
             if (pawn.pawnType == pawnType && pawn.pawnNumber == pawnNo)
             {
                 print("Pawn Coroutine called");
-                StartCoroutine(pawn.MoveTo(diceValue, true));
+                MainThreadDispatcher.Enqueue(() =>
+                {
+                    StartCoroutine(pawn.MoveTo(diceValue, true));
+                });
             }
         }
     }

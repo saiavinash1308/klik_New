@@ -203,27 +203,7 @@ public class GameFetcherScript : MonoBehaviour
     }
 
 
-    IEnumerator LoadSceneAndCallUI(string sceneName, string buttonName , string PawnColor)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-        yield return new WaitUntil(() => asyncLoad.isDone);
-
-        // Scene is loaded — now safely find the UiManager
-        UiManager uiManager = FindObjectOfType<UiManager>();
-        if (uiManager != null)
-        {
-            uiManager.OnClick(buttonName);
-            uiManager.OnClick(PawnColor);
-        }
-        else
-        {
-            Debug.LogWarning("UiManager not found in the loaded scene.");
-        }
-
-        Debug.Log("No of Players:" + buttonName + "Colour:" + PawnColor);
-    }
-
+   
 
     private void OnCancelDeduction()
     {
