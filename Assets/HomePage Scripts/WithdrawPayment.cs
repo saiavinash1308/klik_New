@@ -45,7 +45,7 @@ public class WithdrawPayment : MonoBehaviour
 
     private IEnumerator SendRequest(string authToken, string amount)
     {
-        string url = "https://backend-ciq1.onrender.com/api/transactions/createwithdraw"; 
+        string url = "https://backend-klik.fivlog.space/api/transactions/createwithdraw"; 
 
         // Prepare JSON data
         string jsonData = JsonUtility.ToJson(new UserTransaction { amount = amount });

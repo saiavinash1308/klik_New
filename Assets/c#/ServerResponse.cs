@@ -160,12 +160,16 @@ public class ServerResponse : MonoBehaviour
 
     private void OnPlayerWin(SocketIOResponse e)
     {
-        JObject data = ParseData(e);
-        string winnerId = JsonConvert.DeserializeObject<string>(data["PlayerId"].ToString());
-
-        PawnType winnerPawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(winnerId);
-        SetWinner.instance.OnPlayerWin(winnerPawnType);
-        TempOnlinePlayersData.instance.RemovePlayer(winnerId);
+        string jsonString = e.GetValue<string>();
+        JObject data = JObject.Parse(jsonString);
+        string winnerId = data["PlayerId"].ToString();
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            PawnType winnerPawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(winnerId);
+            SetWinner.instance.OnPlayerWin(winnerPawnType);
+            TempOnlinePlayersData.instance.RemovePlayer(winnerId);
+        });
+        
     }
 
     private void AvoidSwitchingPlayer(SocketIOResponse e)
@@ -173,8 +177,10 @@ public class ServerResponse : MonoBehaviour
         string jsonString = e.GetValue<string>();
         JObject data = JObject.Parse(jsonString);
         int diceValue = int.Parse(data["diceValue"].ToString());
-
-        StartCoroutine(DiceController.instance.RollDice(diceValue));
+        MainThreadDispatcher.Enqueue(() =>
+        {
+            StartCoroutine(DiceController.instance.RollDice(diceValue));
+        });
     }
 
     private void PlayerFinishedMoving(SocketIOResponse e)
@@ -234,17 +240,21 @@ public class ServerResponse : MonoBehaviour
 
     private void YouWin(SocketIOResponse e)
     {
+        string jsonString = e.GetValue<string>();
+        print("Player Moved" + jsonString);
         try
         {
-            JObject data = ParseData(e);
-            string playerId = JsonConvert.DeserializeObject<string>(data["playerId"].ToString());
+            JObject data = JObject.Parse(jsonString);
+            string playerId = data["playerId"].ToString();
+            MainThreadDispatcher.Enqueue(() =>
+            {
+                    PawnType exitPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
+                _youWinPanel.OnPlayerWin(exitPawn);
 
-            PawnType exitPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
-            _youWinPanel.OnPlayerWin(exitPawn);
-
-            PlayerInfo.instance.RemovePawn(exitPawn);
-            UiManager.instance.ExitPanel(exitPawn);
-            TempOnlinePlayersData.instance.RemovePlayer(playerId);
+                PlayerInfo.instance.RemovePawn(exitPawn);
+                UiManager.instance.ExitPanel(exitPawn);
+                TempOnlinePlayersData.instance.RemovePlayer(playerId);
+            });
         }
         catch (Exception ex)
         {
@@ -262,10 +272,13 @@ public class ServerResponse : MonoBehaviour
         int pawnNo = int.Parse(data["pawnNo"].ToString());
         string playerId = data["playerId"].ToString();
 
-        PawnType pawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
-        Debug.Log($"Pawn Movement | Dice: {diceValue}, PawnNo: {pawnNo}");
+        MainThreadDispatcher.Enqueue(() =>
+        {
+                PawnType pawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
+            Debug.Log($"Pawn Movement | Dice: {diceValue}, PawnNo: {pawnNo}");
 
-        FindAndMoveThePawn(diceValue, pawnNo, pawnType);
+            FindAndMoveThePawn(diceValue, pawnNo, pawnType);
+        });
     }
 
     private void FindAndMoveThePawn(int diceValue, int pawnNo, PawnType pawnType)

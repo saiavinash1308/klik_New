@@ -24,7 +24,7 @@ public class SignUpManager : MonoBehaviour
     private bool isterms, isstate;
 
     //private string apiUrl = "http://localhost:3001/api/user/create"; 
-    private string apiUrl = "https://backend-ciq1.onrender.com/api/user/create"; 
+    private string apiUrl = "https://backend-klik.fivlog.space/api/user/create"; 
 
 
     public void Start()

@@ -17,7 +17,7 @@ public class LoginManager : MonoBehaviour
     public GameObject Loading;
     public GameObject SignupPopUp;
     //private string apiUrl = "http://localhost:3001/api/user/login";
-    private string apiUrl = "https://backend-ciq1.onrender.com/api/user/login";
+    private string apiUrl = "https://backend-klik.fivlog.space/api/user/login";
 
     private void Start()
     {

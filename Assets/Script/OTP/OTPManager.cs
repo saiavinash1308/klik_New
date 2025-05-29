@@ -17,10 +17,10 @@ public class OTPManager : MonoBehaviour
     public GameObject CurrentPanel;
     public GameObject otpBtn;
 
-    private string verifyOtpApiUrl = "https://backend-ciq1.onrender.com/api/user/verifyotp"; 
+    private string verifyOtpApiUrl = "https://backend-klik.fivlog.space/api/user/verifyotp"; 
     //private string verifyOtpApiUrl = "http://localhost:3001/api/user/verifyotp"; 
     //private string resendOtpApiUrl = "http://localhost:3001/api/user/resendotp"; 
-    private string resendOtpApiUrl = "https://backend-ciq1.onrender.com/api/user/resendotp"; 
+    private string resendOtpApiUrl = "https://backend-klik.fivlog.space/api/user/resendotp"; 
 
     void Start()
     {

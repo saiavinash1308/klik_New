@@ -16258,6 +16258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be88aec89026e14c9ae34198b33f0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onlinePlayersProfileManager: {fileID: 1754379075}
 --- !u!114 &1754379078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16271,7 +16272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profilePicBtn: {fileID: 737769868}
-  profileName: {fileID: 55483334}
+  profileName: {fileID: 0}
 --- !u!114 &1754379079
 MonoBehaviour:
   m_ObjectHideFlags: 0

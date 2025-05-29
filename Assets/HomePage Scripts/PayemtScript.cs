@@ -14,7 +14,7 @@ public class PaymentScript : MonoBehaviour
     public GameObject ProceedBtn;
     private string orderId;
     private float amountFloat;
-    private string apiUrl = "https://backend-ciq1.onrender.com/api/transactions/create"; 
+    private string apiUrl = "https://backend-klik.fivlog.space/api/transactions/create"; 
     //private string apiUrl = "http://localhost:3001/api/transactions/create"; 
     private UniWebView webView; 
     public HomePageManager HomePageManager;

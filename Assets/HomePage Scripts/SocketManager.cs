@@ -64,7 +64,7 @@ public class SocketManager : MonoBehaviour
     internal void InitializeSocket()
     {
         //var url = "http://localhost:3000/";
-        var url = "https://backend-production-51f8.up.railway.app/";
+        var url = "https://sockets-klik.fivlog.space/";
         var uri = new Uri(url);
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
@@ -279,7 +279,7 @@ public class SocketManager : MonoBehaviour
     public void EndGame(SocketIOResponse res)
     {
         string cardData = res.GetValue<string>();
-        Debug.Log("Card matched data received: " + cardData);
+        Debug.Log("Winner data received: " + cardData);
         var jsonData = JsonUtility.FromJson<EndCardsData>(cardData.ToString());
         MainThreadDispatcher.Enqueue(() =>
         {

@@ -7,7 +7,7 @@ public class FetchWalletAmount : MonoBehaviour
 {
     public Text[] walletAmountTexts; 
 
-    private const string apiUrl = "https://backend-ciq1.onrender.com/api/wallet/getWalletAmount";
+    private const string apiUrl = "https://backend-klik.fivlog.space/api/wallet/getWalletAmount";
     //private const string apiUrl = "http://localhost:3001/api/wallet/getWalletAmount";
     private const string tokenKey = "AuthToken"; 
 

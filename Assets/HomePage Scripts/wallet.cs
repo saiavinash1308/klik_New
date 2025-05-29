@@ -15,7 +15,7 @@ public class Wallet : MonoBehaviour
     public GameObject transactionDataPrefab;  
     public Transform contentPanel1;
 
-    private const string baseUrl = "https://backend-ciq1.onrender.com/api/transactions/fetchTransactions";
+    private const string baseUrl = "https://backend-klik.fivlog.space/api/transactions/fetchTransactions";
 
     void Start()
     {

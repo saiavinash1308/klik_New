@@ -13,19 +13,53 @@ public class Player : MonoBehaviour
     {
         profilePicture = GetComponent<Image>();   
     }
-    public void SetProfile(string profilePic,string playerId)
+    public void SetProfile(string profilePic, string playerId)
     {
         print("setProfile");
         this.playerId = playerId;
-        bool invalidPic = profilePic.Equals("noProfile") || profilePic.Equals(string.Empty);
-        if (invalidPic) return;
-        byte[] text = System.Convert.FromBase64String(profilePic);
-        Texture2D tex = new Texture2D(2, 2);
-        if (tex.LoadImage(text))
+
+        bool invalidPic = string.IsNullOrEmpty(profilePic) || profilePic.Equals("noProfile");
+
+        if (invalidPic)
         {
-            profilePicture.sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), profilePicture.gameObject.transform.position); ;
+            Debug.LogWarning($"Profile picture is invalid or missing for player {playerId}");
+            return;
+        }
+
+        try
+        {
+            if (!IsBase64String(profilePic))
+            {
+                Debug.LogWarning($"Profile picture string is not valid Base64 for player {playerId}");
+                return;
+            }
+
+            byte[] imageData = System.Convert.FromBase64String(profilePic);
+            Texture2D tex = new Texture2D(2, 2);
+
+            if (tex.LoadImage(imageData))
+            {
+                profilePicture.sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+            }
+            else
+            {
+                Debug.LogWarning($"Failed to load image from Base64 for player {playerId}");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Error decoding profile picture for player {playerId}: {ex.Message}");
         }
     }
+    private bool IsBase64String(string s)
+    {
+        s = s?.Trim();
+        if (string.IsNullOrEmpty(s) || s.Length % 4 != 0)
+            return false;
+
+        return System.Text.RegularExpressions.Regex.IsMatch(s, @"^[a-zA-Z0-9\+/]*={0,2}$");
+    }
+
 
     public void SetDefaultProfile()
     {
