@@ -43,6 +43,8 @@ public class HomePageManager : MonoBehaviour
 
     public Sprite[] avatarSprites;
     public Image[] avatarPreviewImages;
+    private const string baseUrl = "https://sockets-klik.fivlog.space/";
+    public TMP_Text userCountText;
 
 
     void Start()
@@ -64,6 +66,7 @@ public class HomePageManager : MonoBehaviour
 
         HomeMark.SetActive(true);
         WalletMark.SetActive(false);
+        StartCoroutine(GetUserCount());
     }
 
     public void OnProfile()
@@ -134,6 +137,33 @@ public class HomePageManager : MonoBehaviour
         {
             Debug.LogError($"Invalid total amount format! raw=\"{raw}\" cleaned=\"{cleaned}\"");
         }
+    }
+    private IEnumerator GetUserCount()
+    {
+        Debug.Log("Getting user count");
+        UnityWebRequest request = UnityWebRequest.Get(baseUrl);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError($"Error fetching user count: {request.error}");
+            yield break;
+        }
+
+        string responseText = request.downloadHandler.text;
+        Debug.Log($"Backend Response: {responseText}");
+
+        UserCountResponse response = JsonUtility.FromJson<UserCountResponse>(responseText);
+
+        // Update the UI text with the user count
+        userCountText.text = $" {response.count}";
+    }
+
+    [System.Serializable]
+    public class UserCountResponse
+    {
+        public int count;
     }
 }
             

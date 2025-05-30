@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
-using TMPro; // For TextMeshPro Input Fields
+using TMPro;
 using UnityEngine.Networking;
 using System.Text;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening.Core.Easing;
 
 public class PaymentScript : MonoBehaviour
 {
     public TMP_InputField AmountInputField;
     public TextMeshProUGUI statusMessageText;
-    public GameObject WalletPanel;
+    public GameObject HomePanel;
     public GameObject CurrentPanel;
     public GameObject ProceedBtn;
     private string orderId;
-    private float amountFloat;
-    private string apiUrl = "https://backend-klik.fivlog.space/api/transactions/create"; 
-    //private string apiUrl = "http://localhost:3001/api/transactions/create"; 
-    private UniWebView webView; 
-    public HomePageManager HomePageManager;
+    //public Button BannerBtn;
 
+    private string apiUrl = "https://backend-klik.fivlog.space/api/payments/create";
+    private UniWebView webView;
     private bool isWebViewActive = false;
-
-    public GameObject Loading;
-
+    public GameObject Successpopup;
+    private float amountFloat;
+    public HomePageManager CrashGame;
 
     private void Start()
     {
@@ -179,9 +178,9 @@ public class PaymentScript : MonoBehaviour
 
     public void BackToHome()
     {
-        //Successpopup.SetActive(false);
+        Successpopup.SetActive(false);
         CurrentPanel.SetActive(false);
-        //HomePanel.SetActive(true);
+        HomePanel.SetActive(true);
     }
 
 
@@ -246,8 +245,8 @@ public class PaymentScript : MonoBehaviour
 
     public void Success()
     {
-        //Successpopup.SetActive(true);
-        HomePageManager.UpdateTotalAmount(amountFloat);
+        Successpopup.SetActive(true);
+        CrashGame.UpdateTotalAmount(amountFloat);
     }
     private void ShowStatusMessage(string message)
     {
@@ -297,5 +296,3 @@ public class PaymentScript : MonoBehaviour
         AmountInputField.text = "";
     }
 }
-
-

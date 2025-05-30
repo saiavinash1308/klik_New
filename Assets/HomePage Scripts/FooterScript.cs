@@ -9,10 +9,12 @@ public class FooterScript : MonoBehaviour
     public GameObject SettingsPanel;
     public GameObject PaymentPanel;
     public GameObject walletPanel;
+    public GameObject referPanel;
 
     public GameObject HomeMark;
     public GameObject WalletMark;
     public GameObject ProfileMark;
+    public GameObject referMark;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class FooterScript : MonoBehaviour
         SettingsPanel.SetActive(false);
         PaymentPanel.SetActive(false);
         walletPanel.SetActive(false);
+        referPanel.SetActive(false);
     }
 
     public void SetAllCheckMarksInactive()
@@ -36,6 +39,7 @@ public class FooterScript : MonoBehaviour
         HomeMark.SetActive(false);
         ProfileMark.SetActive(false);
         WalletMark.SetActive(false);
+        referMark.SetActive(false);
     }
 
 

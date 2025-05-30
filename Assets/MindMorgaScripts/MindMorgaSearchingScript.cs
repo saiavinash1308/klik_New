@@ -14,6 +14,8 @@ public class MindMorgaSearchScript : MonoBehaviour
     public Button Back;
     public Button Quit;
     public Button Cancle;
+    public Sprite[] avatarSprites;
+    public Image[] avatarPreviewImages;
 
     void Awake()
     {
@@ -27,6 +29,14 @@ public class MindMorgaSearchScript : MonoBehaviour
         {
             Debug.LogError("SocketManager not found!");
             return; // Exit early to avoid null reference later
+        }
+        int savedIndex = PlayerPrefs.GetInt("SelectedAvatar", 0);
+        Sprite selectedAvatar = avatarSprites[savedIndex];
+
+        // Apply to all preview UI images
+        foreach (Image img in avatarPreviewImages)
+        {
+            img.sprite = selectedAvatar;
         }
 
         isSearching = true;
