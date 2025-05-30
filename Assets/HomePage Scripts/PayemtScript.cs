@@ -16,7 +16,7 @@ public class PaymentScript : MonoBehaviour
     private string orderId;
     //public Button BannerBtn;
 
-    private string apiUrl = "https://backend-klik.fivlog.space/api/payments/create";
+    private string apiUrl = "https://backend-klik.fivlog.space/api/transactions/create";
     private UniWebView webView;
     private bool isWebViewActive = false;
     public GameObject Successpopup;
