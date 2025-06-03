@@ -18,7 +18,7 @@ public class ServerRequest : MonoBehaviour
     {
         if (socket == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
     }

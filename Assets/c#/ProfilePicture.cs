@@ -42,7 +42,7 @@ public class ProfilePicture : MonoBehaviour
 			//message = "Pick image called";
 			NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
 			{
-				Debug.Log("Image path: " + path);
+				Logger.Log("Image path: " + path);
 			//message = "Image path: " + path;
 				if (path != null)
 				{
@@ -59,7 +59,7 @@ public class ProfilePicture : MonoBehaviour
 				}
 			}, "Select a PNG image", "image/png");
 			message = "Permission result: " + permission;
-			Debug.Log("Permission result: " + permission);
+			Logger.Log("Permission result: " + permission);
 		}
 		catch (Exception e)
 		{
@@ -73,7 +73,7 @@ public class ProfilePicture : MonoBehaviour
 
 		message = "gudda";
 		imagePath = Application.persistentDataPath + "/testTexture.png";
-		Debug.Log(imagePath);
+		Logger.Log(imagePath);
 		if (File.Exists(imagePath))
 		{
 			message = "---1----";

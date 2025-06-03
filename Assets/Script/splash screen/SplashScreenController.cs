@@ -19,12 +19,12 @@ public class SplashScreenController : MonoBehaviour
 
         if (!string.IsNullOrEmpty(userName))
         {
-            Debug.Log("User is logged in: " + userName);
+            Logger.Log("User is logged in: " + userName);
             SceneManager.LoadScene("Home"); 
         }
         else
         {
-            Debug.Log("User is not logged in.");
+            Logger.Log("User is not logged in.");
             SceneManager.LoadScene("SignUp"); 
         }
     }

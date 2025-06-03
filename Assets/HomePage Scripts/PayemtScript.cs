@@ -49,17 +49,17 @@ public class PaymentScript : MonoBehaviour
 
         if (float.TryParse(amount, out amountFloat))
         {
-            Debug.Log("Converted float amount: " + amountFloat);
+            Logger.Log("Converted float amount: " + amountFloat);
 
-            if (amountFloat < 10)
+            if (amountFloat < 10 || amountFloat > 50000)
             {
-                ShowStatusMessage("Please note minimum deposit is 10.");
+                ShowStatusMessage("Please note minimum deposit is 10 and upto 50,000");
                 return;
             }
         }
         else
         {
-            Debug.Log("Invalid float input: " + amount);
+            Logger.Log("Invalid float input: " + amount);
             ShowStatusMessage("Invalid amount entered.");
             return;
         }
@@ -68,9 +68,19 @@ public class PaymentScript : MonoBehaviour
         ProceedBtn.transform.GetChild(0).gameObject.SetActive(false);
         ProceedBtn.transform.GetChild(1).gameObject.SetActive(true);
         StartCoroutine(SendTransactionRequest((int)amountFloat));
+        StartCoroutine(PaymentTimeout());
         statusMessageText.text = "";
     }
 
+    private IEnumerator PaymentTimeout()
+    {
+        yield return new WaitForSeconds(300f); // 5 minutes
+        if (webView != null && isWebViewActive)
+        {
+            CloseWebView();
+            ShowStatusMessage("Payment timeout. Please try again.");
+        }
+    }
 
     public IEnumerator SendTransactionRequest(int amount)
     {
@@ -93,23 +103,23 @@ public class PaymentScript : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("authorization", authToken);
 
-        Debug.Log("Transaction Request Data: " + jsonData);
+        Logger.Log("Transaction Request Data: " + jsonData);
 
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Transaction Response: " + request.downloadHandler.text);
+            Logger.Log("Transaction Response: " + request.downloadHandler.text);
             ApiResponse apiResponse = JsonUtility.FromJson<ApiResponse>(request.downloadHandler.text);
 
             orderId = apiResponse.orderId;
-            Debug.Log("Fetched Order ID: " + orderId);
+            Logger.Log("Fetched Order ID: " + orderId);
 
             StartRazorpayPayment(orderId, amount);
         }
         else
         {
-            Debug.LogError("Transaction request failed: " + request.error);
+            Logger.LogError("Transaction request failed: " + request.error);
             yield return new WaitForSeconds(2);
             StartCoroutine(SendTransactionRequest(amount));
             ProceedBtn.transform.GetChild(0).gameObject.SetActive(true);
@@ -150,7 +160,7 @@ public class PaymentScript : MonoBehaviour
             razorpayUrl = $"file://{Application.streamingAssetsPath}/index.html?orderId={orderId}&amount={amount}";
         }
 
-        Debug.Log("Loading Razorpay URL: " + razorpayUrl);
+        Logger.Log("Loading Razorpay URL: " + razorpayUrl);
 
         webView.Load(razorpayUrl, true);
         webView.Show();
@@ -164,11 +174,11 @@ public class PaymentScript : MonoBehaviour
     {
         if (webView != null)
         {
-            Debug.Log("🔒 Closing WebView with delay...");
+            Logger.Log("🔒 Closing WebView with delay...");
 
             webView.Hide(true, UniWebViewTransitionEdge.None, 0.3f, () =>
             {
-                Debug.Log("🧨 Destroying WebView after hiding.");
+                Logger.Log("🧨 Destroying WebView after hiding.");
                 Destroy(webView);
                 webView = null;
                 isWebViewActive = false;
@@ -189,12 +199,12 @@ public class PaymentScript : MonoBehaviour
 
     private void OnWebViewMessageReceived(UniWebView view, UniWebViewMessage message)
     {
-        Debug.Log($"[UniWebView] Received Message: {message.RawMessage}");
+        Logger.Log($"[UniWebView] Received Message: {message.RawMessage}");
 
         switch (message.Path)
         {
             case "payment_success":
-                Debug.Log("✅ Payment success received");
+                Logger.Log("✅ Payment success received");
 
                 Success();
 
@@ -202,7 +212,7 @@ public class PaymentScript : MonoBehaviour
                 {
                     view.Hide(true, UniWebViewTransitionEdge.None, 0.3f, () =>
                     {
-                        Debug.Log("🧨 Destroying WebView after hiding...");
+                        Logger.Log("🧨 Destroying WebView after hiding...");
                         Destroy(view);
                         isWebViewActive = false;
                         webView = null;
@@ -211,14 +221,14 @@ public class PaymentScript : MonoBehaviour
                 break;
 
             case "payment_failed":
-                Debug.LogWarning("❌ Payment failed or cancelled");
+                Logger.LogWarning("❌ Payment failed or cancelled");
 
 
                 if (view != null)
                 {
                     view.Hide(true, UniWebViewTransitionEdge.None, 0.3f, () =>
                     {
-                        Debug.Log("🧨 Destroying WebView after hiding...");
+                        Logger.Log("🧨 Destroying WebView after hiding...");
                         Destroy(view);
                         isWebViewActive = false;
                         webView = null;
@@ -227,7 +237,7 @@ public class PaymentScript : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning("⚠️ Unrecognized message path: " + message.Path);
+                Logger.LogWarning("⚠️ Unrecognized message path: " + message.Path);
                 break;
         }
     }

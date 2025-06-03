@@ -51,7 +51,7 @@ public class LoginManager : MonoBehaviour
     IEnumerator SendLoginRequest(string mobile)
     {
         string jsonData = JsonUtility.ToJson(new UserCredentials { mobile = mobile });
-        Debug.Log("Sending JSON data: " + jsonData);
+        Logger.Log("Sending JSON data: " + jsonData);
 
         UnityWebRequest request = new UnityWebRequest(apiUrl, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
@@ -61,21 +61,22 @@ public class LoginManager : MonoBehaviour
 
         yield return request.SendWebRequest();
 
-        Debug.Log("Request URL: " + request.url);
-        Debug.Log("Request Method: " + request.method);
-        Debug.Log("Response Code: " + request.responseCode);
+        Logger.Log("Request URL: " + request.url);
+        Logger.Log("Request Method: " + request.method);
+        Logger.Log("Response Code: " + request.responseCode);
 
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError("Connection Error: " + request.error);
+            Logger.LogWarning("Connection Error: " + request.error);
+            Logger.LogError("Connection Error Try Again ");
             ShowErrorMessage("Connection Error Try Again");
             Loading.gameObject.SetActive(false);
             yield break;
         }
         else if (request.result == UnityWebRequest.Result.ProtocolError)
         {
-            Debug.LogError("Protocol Error: " + request.error);
-            Debug.LogError("Response Body: " + request.downloadHandler.text);
+            Logger.LogWarning("Protocol Error: " + request.error);
+            Logger.LogWarning("Response Body: " + request.downloadHandler.text);
             SignupPopUp.SetActive(true);
             Loading.gameObject.SetActive(false);
             SignInBtn.transform.GetChild(0).gameObject.SetActive(true);
@@ -85,14 +86,15 @@ public class LoginManager : MonoBehaviour
         else if (request.responseCode == 400)
         {
             string errorResponseText = request.downloadHandler.text;
-            Debug.LogError("Error Response: " + errorResponseText);
+            Logger.LogWarning("Error Response: " + errorResponseText);
+            Logger.LogError("Network error. Please try again.");
             ErrorResponse errorResponse = JsonUtility.FromJson<ErrorResponse>(errorResponseText);
             ShowErrorMessage("Error: " + errorResponse.message);
             yield break;
         }
 
         string responseText = request.downloadHandler.text;
-        Debug.Log("Response: " + responseText);
+        Logger.Log("Response: " + responseText);
         Loading.SetActive(false);
         SignupPopUp.SetActive(false);
         SignInPanel.SetActive(false);
@@ -104,7 +106,7 @@ public class LoginManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(loginResponse.AuthToken) && loginResponse.user != null)
         {
-            Debug.Log("Mobile number from response: " + mobile);
+            Logger.Log("Mobile number from response: " + mobile);
             PlayerPrefs.SetString("mobile", mobile);
             PlayerPrefs.Save();
             OTPPanel.SetActive(true);

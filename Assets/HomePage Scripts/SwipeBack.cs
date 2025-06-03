@@ -108,7 +108,7 @@ public class SwipeBack : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Previous or Current Panel is not assigned.");
+            Logger.LogWarning("Previous or Current Panel is not assigned.");
         }
     }
 }

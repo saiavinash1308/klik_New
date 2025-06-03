@@ -29,7 +29,7 @@ public class swipe_menu : MonoBehaviour
         }
         else
         {
-            Debug.Log("ScrollBar Missing");
+            Logger.Log("ScrollBar Missing");
         }
 
         scroll_pos = scrollbar.GetComponent<Scrollbar>().value;

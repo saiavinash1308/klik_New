@@ -7,7 +7,14 @@ using UnityEngine.UI; // Only if using TextMeshPro
 public class ShareButton : MonoBehaviour
 {
     public Text referralText; // Assign this in the Inspector
+    public Button BackBtn;
+    public GameObject CurrentPanel;
+    public GameObject PreviousPanel;
 
+    private void Start()
+    {
+        BackBtn.onClick.AddListener(delegate { SetAllPanelsInactive(); });
+    }
     public void ClickShareBtn()
     {
         StartCoroutine(APKShare(referralText.text));
@@ -21,7 +28,7 @@ public class ShareButton : MonoBehaviour
 
         if (image == null)
         {
-            Debug.LogError("Failed to load texture from Resources.");
+            Logger.LogWarning("Failed to load texture from Resources.");
             yield break;
         }
 
@@ -43,7 +50,7 @@ public class ShareButton : MonoBehaviour
             .AddFile(filePath)
             .SetSubject("Klik Games")
             .SetText(finalMessage)
-            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
+            .SetCallback((result, shareTarget) => Logger.Log("Share result: " + result + ", selected app: " + shareTarget))
             .Share();
 
 
@@ -51,6 +58,12 @@ public class ShareButton : MonoBehaviour
     public void CopyToClipboard()
     {
         GUIUtility.systemCopyBuffer = referralText.text;
-        Debug.Log("Copied to clipboard: " + referralText.text);
+        Logger.Log("Copied to clipboard: " + referralText.text);
+    }
+
+    private void SetAllPanelsInactive()
+    {
+        CurrentPanel.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

@@ -33,7 +33,7 @@ class LudoGameManager : MonoBehaviour
     {
         if (socketManager == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
 

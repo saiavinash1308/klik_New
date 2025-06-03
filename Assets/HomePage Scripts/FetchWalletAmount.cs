@@ -21,7 +21,7 @@ public class FetchWalletAmount : MonoBehaviour
         string authToken = PlayerPrefs.GetString("AuthToken", null);
         if (string.IsNullOrEmpty(authToken))
         {
-            Debug.LogError("Authorization token is missing.");
+            Logger.LogError("Network error. Please try again.");
             yield break;
         }
 
@@ -34,12 +34,17 @@ public class FetchWalletAmount : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseText = request.downloadHandler.text;
-            Debug.Log("Response from API: " + responseText);
+            Logger.Log("Response from API: " + responseText);
+            if (string.IsNullOrEmpty(responseText) || responseText == "null")
+            {
+                Logger.LogWarning("Empty wallet response");
+                yield break;
+            }
 
             WalletResponse walletResponse = JsonUtility.FromJson<WalletResponse>(responseText);
             if (walletResponse != null)
             {
-                Debug.Log("Parsed amount: " + walletResponse.amount);
+                Logger.Log("Parsed amount: " + walletResponse.amount);
 
                 foreach (Text walletText in walletAmountTexts)
                 {
@@ -48,12 +53,12 @@ public class FetchWalletAmount : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Failed to parse wallet response.");
+                Logger.LogError("Network error. Please try again.");
             }
         }
         else
         {
-            Debug.LogError("Error fetching wallet amount: " + request.error);
+            Logger.LogWarning("Error fetching wallet amount: " + request.error);
         }
     }
 }
@@ -87,7 +92,7 @@ public class WalletResponse
 //        string authToken = PlayerPrefs.GetString("AuthToken", null);
 //        if (string.IsNullOrEmpty(authToken))
 //        {
-//            Debug.LogError("Authorization token is missing.");
+//            Logger.LogError("Authorization token is missing.");
 //            yield break;
 //        }
 
@@ -100,13 +105,13 @@ public class WalletResponse
 //        if (request.result == UnityWebRequest.Result.Success)
 //        {
 //            string responseText = request.downloadHandler.text;
-//            Debug.Log("Response from API: " + responseText);
+//            Logger.Log("Response from API: " + responseText);
 
 //            WalletResponse walletResponse = JsonUtility.FromJson<WalletResponse>(responseText);
 //            if (walletResponse != null)
 //            {
-//                Debug.Log("Parsed amount: " + walletResponse.balance);
-//                Debug.Log("Parsed amount: " + walletResponse.bonus);
+//                Logger.Log("Parsed amount: " + walletResponse.balance);
+//                Logger.Log("Parsed amount: " + walletResponse.bonus);
 
 //                foreach (Text text in walletAmountTexts)
 //                {
@@ -125,12 +130,12 @@ public class WalletResponse
 //            }
 //            else
 //            {
-//                Debug.LogError("Failed to parse wallet response.");
+//                Logger.LogError("Failed to parse wallet response.");
 //            }
 //        }
 //        else
 //        {
-//            Debug.LogError("Error fetching wallet amount: " + request.error);
+//            Logger.LogError("Error fetching wallet amount: " + request.error);
 //        }
 //    }
 //}

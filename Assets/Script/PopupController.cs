@@ -47,7 +47,7 @@ public class PopupController : MonoBehaviour
         popupImage.gameObject.SetActive(true);
         popupImage.DOAnchorPos(visiblePosition, animationDuration).SetEase(Ease.OutBack);
         isVisible = true;
-        Debug.Log("Popup moved to Y: " + stoppingYPosition);
+        Logger.Log("Popup moved to Y: " + stoppingYPosition);
     }
 
     public void HidePopup()
@@ -58,6 +58,6 @@ public class PopupController : MonoBehaviour
             isVisible = false;
         });
 
-        Debug.Log("Popup moved back to hidden position");
+        Logger.Log("Popup moved back to hidden position");
     }
 }

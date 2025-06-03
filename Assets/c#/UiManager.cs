@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 class UiManager : MonoBehaviour
 {
@@ -115,22 +116,23 @@ class UiManager : MonoBehaviour
     {
         ServerRequest.instance.serverConnection = false;
         ServerRequest.instance.ExitRoom();
-        _ui.SetActive(true);
-        _modePanel.SetActive(true);
-        _matchMakingPanel.SetActive(false);
-        _splachScreenPanel.SetActive(false);
-        _playerSelectionPanel.SetActive(true);
-        _yellowExitPanel.SetActive(false);
-        _greenExitPanel.SetActive(false);
-        _blueExitPanel.SetActive(false);
-        _redExitPanel.SetActive(false);
-        _youWinPanel.SetActive(false);
+        //_ui.SetActive(true);
+        //_modePanel.SetActive(true);
+        //_matchMakingPanel.SetActive(false);
+        //_splachScreenPanel.SetActive(false);
+        //_playerSelectionPanel.SetActive(true);
+        //_yellowExitPanel.SetActive(false);
+        //_greenExitPanel.SetActive(false);
+        //_blueExitPanel.SetActive(false);
+        //_redExitPanel.SetActive(false);
+        //_youWinPanel.SetActive(false);
         _diceAI.OnReset();
         _profleImagePawnTypeMapper.OnReset();
-        colorSelectionPanel.SetActive(true);
+        //colorSelectionPanel.SetActive(true);
         TempOnlinePlayersData.instance.RemoveAllPlayers();
         PawnTimer.stopTimer = true;
         PlayerInfo.instance.RemoveAllPawns();
+        SceneManager.LoadScene("Home");
     }
 
 

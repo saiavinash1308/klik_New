@@ -60,7 +60,7 @@ public class HomePageManager : MonoBehaviour
         socketManager = FindObjectOfType<SocketManager>();
         if (socketManager == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
 
@@ -72,7 +72,7 @@ public class HomePageManager : MonoBehaviour
     public void OnProfile()
     {
         ShowPanel(ProfilePanel);
-        Debug.LogWarning("Profile Panel is active");
+        Logger.LogWarning("Profile Panel is active");
     }
     public void OnEditProfile()
     {
@@ -81,6 +81,8 @@ public class HomePageManager : MonoBehaviour
 
     private void ShowPanel(GameObject panel)
     {
+        if (panel == null) return;
+
         if (currentPanel != null)
         {
             currentPanel.SetActive(false); 
@@ -105,7 +107,7 @@ public class HomePageManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameFetcherScript reference is missing!");
+            Logger.LogWarning("GameFetcherScript reference is missing!");
         }
     }
 
@@ -118,41 +120,50 @@ public class HomePageManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameFetcherScript reference is missing!");
+            Logger.LogWarning("GameFetcherScript reference is missing!");
         }
     }
 
     internal void UpdateTotalAmount(float value)
     {
-        string raw = totalAmount.text;
-        string cleaned = Regex.Replace(raw, @"[^\d\.\-]", "");
-        if (float.TryParse(cleaned, NumberStyles.Float, CultureInfo.InvariantCulture, out float currentTotal))
+
+        try
         {
-            currentTotal += value;
-            totalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
-            DeposittotalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
-            WithdrawtotalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
+            string raw = totalAmount.text;
+            string cleaned = Regex.Replace(raw, @"[^\d\.\-]", "");
+            if (float.TryParse(cleaned, NumberStyles.Float, CultureInfo.InvariantCulture, out float currentTotal))
+            {
+                currentTotal += value;
+                totalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
+                DeposittotalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
+                WithdrawtotalAmount.text = "₹ " + currentTotal.ToString("0.00", CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                Logger.LogWarning($"Invalid total amount format! raw=\"{raw}\" cleaned=\"{cleaned}\"");
+            }
+
         }
-        else
+        catch
         {
-            Debug.LogError($"Invalid total amount format! raw=\"{raw}\" cleaned=\"{cleaned}\"");
+            Logger.LogError($"Failed to update amount");
         }
     }
     private IEnumerator GetUserCount()
     {
-        Debug.Log("Getting user count");
+        Logger.Log("Getting user count");
         UnityWebRequest request = UnityWebRequest.Get(baseUrl);
 
         yield return request.SendWebRequest();
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError($"Error fetching user count: {request.error}");
+            Logger.LogWarning($"Error fetching user count: {request.error}");
             yield break;
         }
 
         string responseText = request.downloadHandler.text;
-        Debug.Log($"Backend Response: {responseText}");
+        Logger.Log($"Backend Response: {responseText}");
 
         UserCountResponse response = JsonUtility.FromJson<UserCountResponse>(responseText);
 

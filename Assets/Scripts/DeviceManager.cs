@@ -11,7 +11,7 @@ public class DeviceManager : MonoBehaviour
     {
         string deviceId = GetAndroidId();
         DeviceId.text = deviceId;
-        Debug.Log("Real Android ID: " + deviceId);
+        Logger.Log("Real Android ID: " + deviceId);
         PlayerPrefs.SetString("DeviceID", deviceId);
         PlayerPrefs.Save();
 

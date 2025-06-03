@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // For TextMeshPro Input Fields
+using TMPro;
 
 public class checkManager : MonoBehaviour
 {
     public static checkManager Instance;
     public TextMeshProUGUI statusMessageText;
     public GameObject Blocker;
-    private bool isInternetChecked = false; // Flag to stop checking once the internet is available
+    private bool isInternetChecked = false;
+    internal SocketManager SocketManager;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +39,7 @@ public class checkManager : MonoBehaviour
         // Only continue checking if the internet is not already available
         if (!isInternetChecked)
         {
+            SocketManager = FindObjectOfType<SocketManager>();
             CheckInternetConnection();
         }
     }
@@ -46,12 +49,13 @@ public class checkManager : MonoBehaviour
         // Check for internet connectivity
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            Debug.LogWarning("No internet connection");
+            Logger.LogWarning("No internet connection");
+            SocketManager.DisconnectSocket();
             ShowStatusMessage("Please Connect to the internet");
         }
         else
         {
-            Debug.LogWarning("Internet connection available");
+            Logger.LogWarning("Internet connection available");
             ShowStatusMessage(""); // Clear the message
             Blocker.gameObject.SetActive(false);
             isInternetChecked = true; // Stop further checks once the internet is available

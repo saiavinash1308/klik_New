@@ -11,6 +11,7 @@ public class SignUpManager : MonoBehaviour
     public TMP_InputField nameInputField;
     public TMP_Text DeviceId;
     public TMP_InputField mobileInputField;
+    //public TMP_InputField referInputField;
     public GameObject Loading;
     public TextMeshProUGUI statusMessageText;
     public GameObject SignInPanel;
@@ -31,42 +32,42 @@ public class SignUpManager : MonoBehaviour
     {
         nameInputField.text = "";
         mobileInputField.text = "";
+        //referInputField.text = "";
         TermsToggle.onValueChanged.AddListener(OnTermsChanged);
         StateToggle.onValueChanged.AddListener(OnStateChanged);
         termschckmark.SetActive(false);
         statechckmark.SetActive(false);
+        UpdateContinueButtonState();
     }
+
+    private void UpdateContinueButtonState()
+    {
+        ContinueBtn.GetComponent<Button>().interactable = isterms && isstate;
+    }
+
 
     public void OnTermsChanged(bool isOn)
     {
-        isterms = isOn;  
-
-        if (isterms)
-        {
-            termschckmark.SetActive(true);
-        }
-        else
-        {
-            termschckmark.SetActive(false);
-        }
+        isterms = isOn;
+        termschckmark.SetActive(isterms);
+        UpdateContinueButtonState();
     }
 
     public void OnStateChanged(bool isOn)
     {
-        isstate = isOn;  
-
-        if (isstate)
-        {
-            statechckmark.SetActive(true);
-        }
-        else
-        {
-            statechckmark.SetActive(false);
-        }
+        isstate = isOn;
+        statechckmark.SetActive(isstate);
+        UpdateContinueButtonState();
     }
+
 
     public void OnSignUpButtonClicked()
     {
+        if (!isterms || !isstate)
+        {
+            ShowStatusMessage("Please accept the Terms and Conditions and confirm your State before continuing.");
+            return;
+        }
         string name = nameInputField.text;
         string mobile = mobileInputField.text;
         string deviceID = DeviceId.text;
@@ -109,7 +110,7 @@ public class SignUpManager : MonoBehaviour
         yield return request.SendWebRequest();
 
         string response = request.downloadHandler.text;
-        Debug.Log("Response from API: " + response);
+        Logger.Log("Response from API: " + response);
 
         if ((response.Contains("User already exists")))
         {
@@ -121,7 +122,7 @@ public class SignUpManager : MonoBehaviour
         }
         if (response.Contains("OTP generated. Please verify."))
         {
-            Debug.Log("Sign-up successful, OTP generated. Navigating to OTP scene.");
+            Logger.Log("Sign-up successful, OTP generated. Navigating to OTP scene.");
             PlayerPrefs.SetString("userName", name);
             PlayerPrefs.Save();
             Loading.SetActive(false);
@@ -130,7 +131,7 @@ public class SignUpManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Sign-up failed with response: " + response);
+            Logger.Log("Sign-up failed with response: " + response);
             ShowStatusMessage("Sign-up failed: " + response);
             Loading.gameObject.SetActive(false);
             ContinueBtn.transform.GetChild(0).gameObject.SetActive(true);

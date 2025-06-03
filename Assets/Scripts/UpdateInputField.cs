@@ -13,7 +13,7 @@ public class UpdateInputField : MonoBehaviour {
     void Start(){
 		dateCanvas = GameObject.Find("Date Canvas").GetComponent<Canvas>();
     	if(!dateCanvas){
-    	Debug.LogWarning("Did not find 'Date Canvas' canvas component!");
+    	Logger.LogWarning("Did not find 'Date Canvas' canvas component!");
     	}
     	dateCanvasEnabled(false);
     }

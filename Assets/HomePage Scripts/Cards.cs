@@ -40,17 +40,17 @@ public class BannerLoader : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.LogError("Error while fetching banners: " + request.error);
+                Logger.LogWarning("Error while fetching banners: " + request.error);
             }
             else
             {
                 string jsonResponse = request.downloadHandler.text;
-                Debug.Log("API Response: " + jsonResponse);
+                Logger.Log("API Response: " + jsonResponse);
 
                 BannerList bannerList = JsonUtility.FromJson<BannerList>(jsonResponse);
                 if (bannerList == null || bannerList.banners == null || bannerList.banners.Length == 0)
                 {
-                    Debug.LogError("No banners found in the API response.");
+                    Logger.LogWarning("No banners found in the API response.");
                     yield break;
                 }
 
@@ -60,7 +60,7 @@ public class BannerLoader : MonoBehaviour
                 for (int i = 0; i < bannerList.banners.Length; i++)
                 {
                     string fullImageUrl = bannerList.banners[i].imageUrl; 
-                    Debug.Log("Downloading image from: " + fullImageUrl);
+                    Logger.Log("Downloading image from: " + fullImageUrl);
 
                     yield return StartCoroutine(DownloadTexture(fullImageUrl, (texture) =>
                     {
@@ -99,8 +99,8 @@ public class BannerLoader : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.LogError("Error while downloading image: " + request.error + " from URL: " + imageUrl);
-                onTextureDownloaded(null);
+                Logger.LogWarning("Error while downloading image: " + request.error + " from URL: " + imageUrl);
+                onTextureDownloaded(null);  
             }
             else
             {
@@ -114,13 +114,13 @@ public class BannerLoader : MonoBehaviour
     {
         if (texture == null)
         {
-            Debug.LogError("Texture is null. Skipping display.");
+            Logger.LogWarning("Texture is null. Skipping display.");
             yield break;
         }
 
         if (imagePrefab == null)
         {
-            Debug.LogError("Image Prefab is not assigned.");
+            Logger.LogWarning("Image Prefab is not assigned.");
             yield break;
         }
 
@@ -128,14 +128,14 @@ public class BannerLoader : MonoBehaviour
 
         if (newBanner == null)
         {
-            Debug.LogError("Failed to instantiate banner prefab.");
+            Logger.LogWarning("Failed to instantiate banner prefab.");
             yield break;
         }
 
         RectTransform rectTransform = newBanner.GetComponent<RectTransform>();
         if (rectTransform == null)
         {
-            Debug.LogError("RectTransform component not found on the instantiated banner.");
+            Logger.LogWarning("RectTransform component not found on the instantiated banner.");
             yield break;
         }
 
@@ -148,7 +148,7 @@ public class BannerLoader : MonoBehaviour
         Image bannerImage = newBanner.GetComponent<Image>();
         if (bannerImage == null)
         {
-            Debug.LogError("Image component not found in prefab.");
+            Logger.LogWarning("Image component not found in prefab.");
             yield break;
         }
         bannerImage.sprite = SpriteFromTexture2D(texture);

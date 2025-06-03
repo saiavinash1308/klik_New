@@ -50,12 +50,17 @@ public class TransactionFilter : MonoBehaviour
     private string pendingDetail; // Account No / UPI ID / Crypto ID
 
     public TextMeshProUGUI errorMessageText;
+    public TextMeshProUGUI MessageText;
 
     public HomePageManager CrashGame;
+    public Button BackBtn;
+    public GameObject CurrentPanel;
+    public GameObject PreviousPanel;
 
 
     void Start()
     {
+        BackBtn.onClick.AddListener(delegate { SetbackPanelsInactive(); });
         ActivatePanel(allTransactionsPanel);
         allToggle.isOn = true;
 
@@ -96,6 +101,13 @@ public class TransactionFilter : MonoBehaviour
         depositPanel.SetActive(false);
         //withdrawPanel.SetActive(false);
     }
+
+    private void SetbackPanelsInactive()
+    {
+        CurrentPanel.SetActive(false);
+        PreviousPanel.SetActive(true);
+    }
+
 
     private void SetOtherTogglesInactive(Toggle activeToggle)
     {
@@ -145,13 +157,13 @@ public class TransactionFilter : MonoBehaviour
 
         if (string.IsNullOrEmpty(method) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(amount))
         {
-            Debug.LogWarning("Please fill all required fields.");
+            Logger.LogWarning("Please fill all required fields.");
             ShowErrorMessage("Please fill all required fields.");
             return;
         }
         if (!decimal.TryParse(amount, out decimal amountValue) || amountValue < 1000)
         {
-            Debug.LogWarning("Minimum withdrawal amount is 1000.");
+            Logger.LogWarning("Minimum withdrawal amount is 1000.");
             ShowErrorMessage("Minimum withdrawal amount is 1000.");
             return;
         }
@@ -161,14 +173,14 @@ public class TransactionFilter : MonoBehaviour
         // Parse the total balance from UI text
         if (!decimal.TryParse(balanceText, out decimal totalBalanceValue))
         {
-            Debug.LogWarning("Failed to parse total balance.");
+            Logger.LogWarning("Failed to parse total balance.");
             ShowErrorMessage("Something went wrong. Try again later.");
             return;
         }
 
         if (amountValue > totalBalanceValue)
         {
-            Debug.LogWarning("Insufficient balance.");
+            Logger.LogWarning("Insufficient balance.");
             ShowErrorMessage("Insufficient balance.");
             return;
         }
@@ -182,7 +194,7 @@ public class TransactionFilter : MonoBehaviour
             case "Bank":
                 if (string.IsNullOrEmpty(accountNumberInput.text) || string.IsNullOrEmpty(ifscInput.text))
                 {
-                    Debug.LogWarning("Bank info missing.");
+                    Logger.LogWarning("Bank info missing.");
                     ShowErrorMessage("Bank info missing.");
                     return;
                 }
@@ -193,7 +205,7 @@ public class TransactionFilter : MonoBehaviour
             case "UPI":
                 if (string.IsNullOrEmpty(upiIdInput.text))
                 {
-                    Debug.LogWarning("UPI ID missing.");
+                    Logger.LogWarning("UPI ID missing.");
                     ShowErrorMessage("UPI ID missing.");
                     return;
                 }
@@ -203,7 +215,7 @@ public class TransactionFilter : MonoBehaviour
             //case "Crypto":
             //    if (string.IsNullOrEmpty(cryptoIdInput.text))
             //    {
-            //        Debug.LogWarning("Crypto ID missing.");
+            //        Logger.LogWarning("Crypto ID missing.");
             //        ShowErrorMessage("Crypto ID missing.");
             //        return;
             //    }
@@ -237,15 +249,17 @@ public class TransactionFilter : MonoBehaviour
         warningPopup.SetActive(false);
         confirmButton.transform.GetChild(0).gameObject.SetActive(false);
         confirmButton.transform.GetChild(1).gameObject.SetActive(true);
-        Debug.Log($"Confirmed Withdrawal - Name: {pendingName}, Amount: {pendingAmount}, Method: {pendingMethod}, To: {pendingDetail}");
+        Logger.Log($"Confirmed Withdrawal - Name: {pendingName}, Amount: {pendingAmount}, Method: {pendingMethod}, To: {pendingDetail}");
         string authToken = PlayerPrefs.GetString("AuthToken");
-        Debug.Log("AuthToken" + authToken);
+        Logger.Log("AuthToken" + authToken);
         if (string.IsNullOrEmpty(authToken))
         {
-            Debug.LogError("Auth token or amount is missing.");
+            Logger.LogWarning("Auth token or amount is missing.");
+            Logger.LogError("Network error. Please try again.");
             ShowErrorMessage("Amount is missing.");
             return;
         }
+        ShowMessage("Processing request,,,");
         StartCoroutine(SendRequest(
         authToken,
         pendingName,
@@ -260,7 +274,8 @@ public class TransactionFilter : MonoBehaviour
         accountNumberInput.text = "";
         ifscInput.text = "";
         upiIdInput.text = "";
-        //cryptoIdInput.text = "";
+        MessageText.text = "";
+       
     }
 
     private IEnumerator SendRequest(string authToken, string name, string amount, string method, string account, string ifsc)
@@ -304,7 +319,7 @@ public class TransactionFilter : MonoBehaviour
         }
 
         string jsonData = JsonUtility.ToJson(transaction);
-        Debug.Log("Transaction JSON: " + jsonData);
+        Logger.Log("Transaction JSON: " + jsonData);
 
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
@@ -317,7 +332,7 @@ public class TransactionFilter : MonoBehaviour
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Request failed: " + request.error);
+            Logger.LogWarning("Request failed: " + request.error);
             ShowErrorMessage("Request failed. Kindly enter an amount greater than or equal to 200.");
             confirmButton.transform.GetChild(0).gameObject.SetActive(true);
             confirmButton.transform.GetChild(1).gameObject.SetActive(false);
@@ -333,14 +348,15 @@ public class TransactionFilter : MonoBehaviour
             }
             else
             {
-                Debug.Log("Request successful! Response: " + request.downloadHandler.text);
+                Logger.Log("Request successful! Response: " + request.downloadHandler.text);
                 if (float.TryParse(amount, out float floatAmount))
                 {
                     CrashGame.UpdateTotalAmount(-floatAmount);
                 }
                 else
                 {
-                    Debug.LogError("Failed to parse withdrawal amount for update: " + amount);
+                    Logger.LogWarning("Failed to parse withdrawal amount for update: " + amount);
+                    Logger.LogError("Network error. Please try again. ");
                 }
 
                 SuccessPopup.SetActive(true);
@@ -362,6 +378,12 @@ public class TransactionFilter : MonoBehaviour
     {
         errorMessageText.text = message;
         errorMessageText.gameObject.SetActive(true);
+    }
+
+    void ShowMessage(string message)
+    {
+        MessageText.text = message;
+        MessageText.gameObject.SetActive(true);
     }
 
     [System.Serializable]

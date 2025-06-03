@@ -22,12 +22,12 @@ public class SpriteAnimator : MonoBehaviour
 
         if (imageComponent == null)
         {
-            Debug.LogError("No Image component found on this GameObject!");
-        }
+            Logger.LogWarning("No Image component found on this GameObject!");
+        }   
 
         if (sprites == null || sprites.Count == 0)
         {
-            Debug.LogError("No sprites assigned to the SpriteAnimator!");
+            Logger.LogWarning("No sprites assigned to the SpriteAnimator!");
         }
     }
 

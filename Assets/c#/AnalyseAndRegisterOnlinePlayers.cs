@@ -19,7 +19,7 @@ class AnalyseAndRegisterOnlinePlayers : MonoBehaviour
     {
         if (socketManager == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
 
@@ -59,7 +59,7 @@ class AnalyseAndRegisterOnlinePlayers : MonoBehaviour
             case 2:
                 if (TwoPlayers.instance == null)
                 {
-                    Debug.LogError("TwoPlayers.instance is null");
+                    Logger.LogError("Network error. Please try again.");
                 }
                 else
                 {
@@ -71,7 +71,7 @@ class AnalyseAndRegisterOnlinePlayers : MonoBehaviour
             case 4:
                 if (FourPlayers.instance == null)
                 {
-                    Debug.LogError("FourPlayers.instance is null");
+                    Logger.LogError("Network error. Please try again.");
                 }
                 else
                 {

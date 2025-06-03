@@ -50,7 +50,7 @@ public class SocketManager : MonoBehaviour
         string authToken = PlayerPrefs.GetString("AuthToken", null);
         if (!string.IsNullOrEmpty(authToken) && !hasEmittedAddUser)
         {
-            Debug.Log("AuthToken: " + authToken);
+            Logger.Log("AuthToken: " + authToken);
             EmitEvent("ADD_USER", authToken);
             hasEmittedAddUser = true; 
         }
@@ -74,16 +74,17 @@ public class SocketManager : MonoBehaviour
         socket.JsonSerializer = new NewtonsoftJsonSerializer();
 
         socket.OnConnected += OnConnected;
-        // socket.OnDisconnected += OnDisconnected; // Register for disconnection
+         socket.OnDisconnected += OnDisconnected; // Register for disconnection
 
-        Debug.Log("Connecting to server...");
+        Logger.Log("Connecting to server...");
         socket.Connect();
     }
+
 
     internal void OnConnected(object sender, EventArgs e)
     {
         isConnected = true;
-        Debug.Log("Connected to server.");
+        Logger.Log("Connected to server.");
         AddListeners();
         EmitAddUserIfNecessary();
     }
@@ -93,17 +94,48 @@ public class SocketManager : MonoBehaviour
         string authToken = PlayerPrefs.GetString("AuthToken", null);
         if (!string.IsNullOrEmpty(authToken) && !hasEmittedAddUser)
         {
-            Debug.Log("AuthToken: " + authToken);
+            Logger.Log("AuthToken: " + authToken);
             EmitEvent("ADD_USER", authToken);
             hasEmittedAddUser = true; // Ensure it only emits once
         }
     }
 
-    private void OnDisconnected(object sender, EventArgs e)
+    private bool isReconnecting = false;
+
+    void OnDisconnected(object sender, string reason)
     {
         isConnected = false;
-        Debug.Log("Disconnected from server.");
-        hasEmittedAddUser = false; // Reset flag on disconnection
+        hasEmittedAddUser = false;
+        Logger.LogWarning("Disconnected from server.");
+
+        if (!isReconnecting)
+        {
+            isReconnecting = true;
+            StartCoroutine(ReconnectWithDelay());
+        }
+    }
+
+    public void DisconnectSocket()
+    {
+        if (socket != null && isConnected)
+        {
+            Logger.LogWarning("Disconnecting socket due to internet loss.");
+            socket.Disconnect();
+            isConnected = false;
+        }
+    }
+
+
+    private IEnumerator ReconnectWithDelay()
+    {
+        while (!isConnected)
+        {
+            Logger.LogWarning("Attempting to reconnect...");
+            socket.Connect();
+            yield return new WaitForSeconds(5f);
+        }
+
+        isReconnecting = false;
     }
 
     internal void EmitEvent(string eventName, string data)
@@ -114,7 +146,7 @@ public class SocketManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Attempted to emit event while disconnected.");
+            Logger.LogWarning("Attempted to emit event while disconnected.");
         }
     }
 
@@ -136,7 +168,7 @@ public class SocketManager : MonoBehaviour
     public void OnStopSearch(SocketIOResponse res)
     {
         string stopData = res.GetValue<string>();
-        Debug.Log("Stop Searching" + stopData);
+        Logger.Log("Stop Searching" + stopData);
         stopSearch = false;
     }
 
@@ -150,8 +182,8 @@ public class SocketManager : MonoBehaviour
     public void MindMorgaGameStarted(SocketIOResponse res)
     {
         string responseData = res.GetValue<string>();
-        Debug.Log("Game Started Response Data: " + responseData);
-        Debug.Log("My Socket Id " + socket.Id);
+        Logger.Log("Game Started Response Data: " + responseData);
+        Logger.Log("My Socket Id " + socket.Id);
 
         GameStartData gameStartData;
         try
@@ -159,28 +191,28 @@ public class SocketManager : MonoBehaviour
             gameStartData = JsonConvert.DeserializeObject<GameStartData>(responseData);
             if (gameStartData == null)
             {
-                Debug.LogError("GameStartData is null after deserialization.");
+                Logger.LogWarning("GameStartData is null after deserialization.");
                 return;
             }
 
             if (gameStartData.roomId == null)
             {
-                Debug.LogError("No roomId found");
+                Logger.LogWarning("No roomId found");
                 return;
             }
 
             if (gameStartData.users == null)
             {
-                Debug.LogError("Users array is null.");
+                Logger.LogWarning("Users array is null.");
                 return;
             }
             roomId = gameStartData.roomId;
             prizePool = gameStartData.prizePool;
-            Debug.Log($"Number of users: {gameStartData.users.Length}");
+            Logger.Log($"Number of users: {gameStartData.users.Length}");
             users = new User[gameStartData.users.Length];
             for (int i = 0; i < gameStartData.users.Length; i++)
             {
-                Debug.Log($"User {i}: Socket ID = {gameStartData.users[i]}");
+                Logger.Log($"User {i}: Socket ID = {gameStartData.users[i]}");
                 User user;
                 string socketId = gameStartData.users[i].socketId;
                 string username = gameStartData.users[i].username;
@@ -192,24 +224,24 @@ public class SocketManager : MonoBehaviour
                 {
                     user = new User(gameStartData.users[i].socketId, username, true);
                 }
-                Debug.Log("socketId " + user.socketId);
+                Logger.Log("socketId " + user.socketId);
                 users[i] = user;
-                Debug.Log("User pushed to array");
+                Logger.Log("User pushed to array");
             }
 
             MainThreadDispatcher.Enqueue(() =>
             {
-                Debug.Log("MindMorgaGameManager " + MindMorgaGameController.Mindgame);
-                Debug.Log("Starting player initialization...");
+                Logger.Log("MindMorgaGameManager " + MindMorgaGameController.Mindgame);
+                Logger.Log("Starting player initialization...");
                 MindMorgaGameController.Mindgame.InitializePlayers(users);
             });
-            Debug.Log("Player initialization completed.");
+            Logger.Log("Player initialization completed.");
 
 
         }
         catch (JsonException jsonEx)
         {
-            Debug.LogError("JSON Parsing Error: " + jsonEx.Message);
+            Logger.LogWarning("JSON Parsing Error: " + jsonEx.Message);
             return;
         }
     }
@@ -218,7 +250,7 @@ public class SocketManager : MonoBehaviour
     {
         string socketId = res.GetValue<string>();
 
-        Debug.Log("Received Player Turn for socketId: " + socketId);
+        Logger.Log("Received Player Turn for socketId: " + socketId);
 
 
         MainThreadDispatcher.Enqueue(() =>
@@ -230,24 +262,24 @@ public class SocketManager : MonoBehaviour
     public void OpenCard(SocketIOResponse res)
     {
         string cardDataJson = res.GetValue<string>();
-        Debug.Log("Card data received: " + cardDataJson);
+        Logger.Log("Card data received: " + cardDataJson);
 
         var jsonData = JsonConvert.DeserializeObject<CardData>(cardDataJson);
 
         if (jsonData != null)
         {
             SetCardData(jsonData.index, jsonData.card);
-            Debug.Log($"Stored card data: Index = {jsonData.index}, Card = {jsonData.card}");
+            Logger.Log($"Stored card data: Index = {jsonData.index}, Card = {jsonData.card}");
 
             MainThreadDispatcher.Enqueue(() =>
             {
                 MindMorgaGameController.Mindgame.LoadCardSprite();
-                Debug.Log("Card data stored and displayed.");
+                Logger.Log("Card data stored and displayed.");
             });
         }
         else
         {
-            Debug.LogError("Failed to deserialize card data.");
+            Logger.LogWarning("Failed to deserialize card data.");
         }
     }
 
@@ -255,36 +287,37 @@ public class SocketManager : MonoBehaviour
     public void CloseCard(SocketIOResponse res)
     {
         string cardData = res.GetValue<string>();
-        Debug.Log("Close card data received: " + cardData);
+        Logger.Log("Close card data received: " + cardData);
         var jsonData = JsonUtility.FromJson<CloseCardsData>(cardData.ToString());
         MainThreadDispatcher.Enqueue(() =>
         {
             MindMorgaGameController.Mindgame.CloseCardSprite(jsonData.index1, jsonData.index2);
-            Debug.Log("Closing card data Received");
+            Logger.Log("Closing card data Received");
         });
     }
 
     public void CardsMatched(SocketIOResponse res)
     {
         string cardData = res.GetValue<string>();
-        Debug.Log("Card matched data received: " + cardData);
+        Logger.Log("Card matched data received: " + cardData);
         var jsonData = JsonUtility.FromJson<MatchCardsData>(cardData.ToString());
         MainThreadDispatcher.Enqueue(() =>
         {
-            MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2, jsonData.score1, jsonData.score2);
-            Debug.Log("Match card data Received");
+            //MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2, jsonData.score1, jsonData.score2);
+            MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2);
+            Logger.Log("Match card data Received");
         });
     }
 
     public void EndGame(SocketIOResponse res)
     {
         string cardData = res.GetValue<string>();
-        Debug.Log("Winner data received: " + cardData);
+        Logger.Log("Winner data received: " + cardData);
         var jsonData = JsonUtility.FromJson<EndCardsData>(cardData.ToString());
         MainThreadDispatcher.Enqueue(() =>
         {
             MindMorgaGameController.Mindgame.EndGame(jsonData.winnerId, jsonData.score1, jsonData.score2);
-            Debug.Log("Match card data Received");
+            Logger.Log("Match card data Received");
         });
     }
 

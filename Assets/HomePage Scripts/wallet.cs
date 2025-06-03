@@ -32,12 +32,12 @@ public class Wallet : MonoBehaviour
 
     private IEnumerator GetTransactionData()
     {
-        Debug.Log($"Sending GET request to: {baseUrl}");
+        Logger.Log($"Sending GET request to: {baseUrl}");
 
         string authToken = PlayerPrefs.GetString("AuthToken", null);
         if (string.IsNullOrEmpty(authToken))
         {
-            Debug.LogError("Authorization token is missing.");
+            Logger.LogError("Network error. Please try again.");
             yield break;
         }
 
@@ -47,16 +47,17 @@ public class Wallet : MonoBehaviour
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError($"Error fetching transactions: {request.error}");
+            Logger.LogWarning($"Error fetching transactions: {request.error}");
+            Logger.LogError($"Network error. Please try again.");
             yield break;
         }
 
         string rawResponse = request.downloadHandler.text;
-        Debug.Log($"Backend Response: {rawResponse}");
+        Logger.Log($"Backend Response: {rawResponse}");
 
         if (string.IsNullOrEmpty(rawResponse))
         {
-            Debug.LogWarning("Empty response from transactions API.");
+            Logger.LogWarning("Empty response from transactions API.");
             yield break;
         }
 
@@ -64,14 +65,14 @@ public class Wallet : MonoBehaviour
 
         if (responseWrapper.transactions == null || responseWrapper.transactions.Count == 0)
         {
-            Debug.Log("No transactions available.");
+            Logger.Log("No transactions available.");
             yield break;
         }
 
-        Debug.Log("Parsed Transaction Data:");
+        Logger.Log("Parsed Transaction Data:");
         foreach (var transaction in responseWrapper.transactions)
         {
-            Debug.Log($"Order ID: {transaction.orderId}, Amount: {transaction.amount}, Status: {transaction.status}, CreatedAt: {transaction.createdAt}");
+            Logger.Log($"Order ID: {transaction.orderId}, Amount: {transaction.amount}, Status: {transaction.status}, CreatedAt: {transaction.createdAt}");
         }
 
         PopulatePanel(contentPanel1, responseWrapper.transactions);

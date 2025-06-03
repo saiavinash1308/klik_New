@@ -54,7 +54,7 @@ public class EditUserProfile : MonoBehaviour
 
         if (string.IsNullOrEmpty(userToken))
         {
-            Debug.LogError("User token is missing or invalid.");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
 
@@ -63,13 +63,13 @@ public class EditUserProfile : MonoBehaviour
 
     IEnumerator UpdateUserData()
     {
-        Debug.Log("Name Input: " + nameInput.text);
+        Logger.Log("Name Input: " + nameInput.text);
         var userData = new
         {
             name = nameInput.text,
         };
         string json = JsonUtility.ToJson(userData);
-        Debug.Log("Serialized JSON: " + json);
+        Logger.Log("Serialized JSON: " + json);
 
         using (UnityWebRequest request = UnityWebRequest.Put(APIIUrl, json))
         {
@@ -80,11 +80,11 @@ public class EditUserProfile : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.LogError("Error updating user profile: " + request.error + " | Response Code: " + request.responseCode);
+                Logger.LogWarning("Error updating user profile: " + request.error + " | Response Code: " + request.responseCode);
             }
             else
             {
-                Debug.Log("User profile updated successfully: " + request.downloadHandler.text);
+                Logger.Log("User profile updated successfully: " + request.downloadHandler.text);
             }
         }
     }

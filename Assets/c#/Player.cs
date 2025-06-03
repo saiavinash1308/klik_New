@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
         if (invalidPic)
         {
-            Debug.LogWarning($"Profile picture is invalid or missing for player {playerId}");
+            Logger.LogWarning($"Profile picture is invalid or missing for player {playerId}");
             return;
         }
 
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         {
             if (!IsBase64String(profilePic))
             {
-                Debug.LogWarning($"Profile picture string is not valid Base64 for player {playerId}");
+                Logger.LogWarning($"Profile picture string is not valid Base64 for player {playerId}");
                 return;
             }
 
@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"Failed to load image from Base64 for player {playerId}");
+                Logger.LogWarning($"Failed to load image from Base64 for player {playerId}");
             }
         }
         catch (System.Exception ex)
         {
-            Debug.LogError($"Error decoding profile picture for player {playerId}: {ex.Message}");
+            Logger.LogWarning($"Error decoding profile picture for player {playerId}: {ex.Message}");
         }
     }
     private bool IsBase64String(string s)

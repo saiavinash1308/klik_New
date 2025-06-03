@@ -77,7 +77,7 @@ public class OTPManager : MonoBehaviour
     IEnumerator SubmitOTP(string otp, string mobile)
     {
         string jsonData = JsonUtility.ToJson(new OTPRequest { mobile = mobile, otp = otp });
-        Debug.Log("JSON Data: " + jsonData);
+        Logger.Log("JSON Data: " + jsonData);
 
         UnityWebRequest request = new UnityWebRequest(verifyOtpApiUrl, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
@@ -89,7 +89,8 @@ public class OTPManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
         {
-            Debug.LogError("Error: " + request.error);
+            Logger.LogWarning("Error: " + request.error);
+            Logger.LogError("Incorrect OTP");
             Loading.SetActive(false);
             statusText.text = "Incorrect OTP";
             otpBtn.transform.GetChild(0).gameObject.SetActive(true);
@@ -98,7 +99,7 @@ public class OTPManager : MonoBehaviour
         else
         {
             string response = request.downloadHandler.text;
-            Debug.Log("Response from API: " + response);
+            Logger.Log("Response from API: " + response);
 
             OTPResponse otpResponse = JsonUtility.FromJson<OTPResponse>(response);
 
@@ -122,9 +123,9 @@ public class OTPManager : MonoBehaviour
     IEnumerator ResendOTP(string mobile)
     {
         string jsonData = JsonUtility.ToJson(new ResendOTPRequest { mobile = mobile });
-        Debug.Log("Sending JSON data: " + jsonData);
+        Logger.Log("Sending JSON data: " + jsonData);
 
-        UnityWebRequest request = new UnityWebRequest(resendOtpApiUrl, "POST");
+        UnityWebRequest request = new UnityWebRequest(resendOtpApiUrl, "PUT");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -134,13 +135,13 @@ public class OTPManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
         {
-            Debug.LogError("Error: " + request.error);
+            Logger.LogWarning("Error: " + request.error);
             statusText.text = "Error: " + request.error;
         }
         else
         {
             string response = request.downloadHandler.text;
-            Debug.Log("Response from API: " + response);
+            Logger.Log("Response from API: " + response);
 
             ResendOTPResponse resendResponse = JsonUtility.FromJson<ResendOTPResponse>(response);
 
@@ -150,7 +151,7 @@ public class OTPManager : MonoBehaviour
             }
             else
             {
-                statusText.text = "Failed to resend OTP: " + resendResponse.message;
+                statusText.text = resendResponse.message;
             }
         }
     }

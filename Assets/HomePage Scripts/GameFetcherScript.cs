@@ -18,13 +18,13 @@ public class GameFetcherScript : MonoBehaviour
     public TMP_Text popupMessageText; 
     public Button confirmButton; 
     public Button cancelButton;
-
+    public TextMeshProUGUI statusMessageText;
     private const string baseUrl = "https://backend-klik.fivlog.space/api/game/fetchGame/";
     //private const string baseUrl = "http://localhost:3001/api/game/fetchGame/";
     public HomePageManager HomePageManager;
     [SerializeField]
     private SocketManager socketManager;
-
+    //private int currentWalletBalance;
     public class Game
     {
         public string gameId;
@@ -51,9 +51,11 @@ public class GameFetcherScript : MonoBehaviour
         
         if (socketManager == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return; 
         }
+
+        //currentWalletBalance = int.Parse(HomePageManager.totalAmount.text);
 
         confirmButton.onClick.AddListener(OnConfirmDeduction);
         cancelButton.onClick.AddListener(OnCancelDeduction);
@@ -65,23 +67,24 @@ public class GameFetcherScript : MonoBehaviour
     {
         string url = $"{baseUrl}{gameType}";
 
-        Debug.Log($"Sending GET request to: {url}");
+        Logger.Log($"Sending GET request to: {url}");
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         yield return request.SendWebRequest();
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError($"Error fetching games: {request.error}");
+            Logger.LogWarning($"Error fetching games: {request.error}");
+            Logger.LogError("Network error. Please try again.");
             yield break;
         }
 
         string rawResponse = request.downloadHandler.text;
-        Debug.Log($"Backend Response: {rawResponse}");
+        Logger.Log($"Backend Response: {rawResponse}");
 
         if (string.IsNullOrEmpty(rawResponse))
         {
-            Debug.LogWarning("Empty response from game fetcher API.");
+            Logger.LogWarning("Empty response from game fetcher API.");
             yield break;
         }
 
@@ -90,14 +93,14 @@ public class GameFetcherScript : MonoBehaviour
 
         if (response.games == null || response.games.Count == 0)
         {
-            Debug.Log("No games available.");
+            Logger.Log("No games available.");
             yield break;
         }
 
-        Debug.Log("Parsed Game Data:");
+        Logger.Log("Parsed Game Data:");
         foreach (var game in response.games)
         {
-            Debug.Log($"Game Name: {game.gameType}, Game Type: {game.gameType}, Max Players: {game.maxPlayers}, Prize Pool: {game.prizePool} {game.currency}");
+            Logger.Log($"Game Name: {game.gameType}, Game Type: {game.gameType}, Max Players: {game.maxPlayers}, Prize Pool: {game.prizePool} {game.currency}");
         }
 
         PopulatePanel(contentPanel1, response.games, "all");
@@ -146,7 +149,7 @@ public class GameFetcherScript : MonoBehaviour
 
     private void OnGameButtonClicked(Game game)
     {
-        Debug.Log($"Button clicked for game: {game.gameType} (ID: {game.gameId})");
+        Logger.Log($"Button clicked for game: {game.gameType} (ID: {game.gameId})");
 
         popupMessageText.text = $"Are you sure you want to play {game.gameType}? Amount will be deducted: {game.entryFee} {game.currency}.";
         popupUI.SetActive(true);
@@ -159,7 +162,7 @@ public class GameFetcherScript : MonoBehaviour
     private void OnConfirmDeduction()
     {
         popupUI.SetActive(false);
-        Debug.Log($"Emitting INIT_GAME event with gameId: {selectedGame.gameId}");
+        Logger.Log($"Emitting INIT_GAME event with gameId: {selectedGame.gameId}");
         socketManager.EmitEvent("INIT_GAME", selectedGame.gameId);
         //string sceneToLoad = "";
         if (selectedGame.gameType == "MEMORYGAME")
@@ -170,7 +173,7 @@ public class GameFetcherScript : MonoBehaviour
             }
 
             HomePageManager.UpdateTotalAmount(-selectedGame.entryFee);
-            Debug.Log("Deducted:" + selectedGame.entryFee);
+            Logger.Log("Deducted:" + selectedGame.entryFee);
         }
         else if (selectedGame.gameType == "LUDO")
         {
@@ -192,8 +195,17 @@ public class GameFetcherScript : MonoBehaviour
                 //StartCoroutine(LoadSceneAndCallUI("LudoGame", "playerNo4", "red"));
 
             }
+            //else if (selectedGame.entryFee > currentWalletBalance)
+            //{
+            //    ShowStatusMessage("Insufficient balance");
+            //    return;
+            //}
             HomePageManager.UpdateTotalAmount(-selectedGame.entryFee);
             //uiManager.OnClick("online");
+        }
+        else
+        {
+            ShowStatusMessage("Game temporarily unavailable");
         }
     }
 
@@ -202,8 +214,13 @@ public class GameFetcherScript : MonoBehaviour
         public static int players;
     }
 
+    void ShowStatusMessage(string message)
+    {
+        statusMessageText.text = message;
+        statusMessageText.gameObject.SetActive(true);
+    }
 
-   
+
 
     private void OnCancelDeduction()
     {

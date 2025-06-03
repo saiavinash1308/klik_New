@@ -34,7 +34,7 @@ public class ServerResponse : MonoBehaviour
     {
         if (socket == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
     }
@@ -47,18 +47,18 @@ public class ServerResponse : MonoBehaviour
         {
             JObject data = ParseData(e);
             List<string> videoGames = JsonConvert.DeserializeObject<List<string>>(data["array"].ToString());
-            Debug.Log("Games: " + data["array"]);
+            Logger.Log("Games: " + data["array"]);
         }
         catch (Exception ex)
         {
-            Debug.LogError("GetPlayerInfo Error: " + ex.Message);
+            Logger.LogWarning("GetPlayerInfo Error: " + ex.Message);
         }
     }
 
     private void StartGame(SocketIOResponse e)
     {
         string responseData = e.GetValue<string>();
-        Debug.Log("Game Started Response Data: " + responseData);
+        Logger.Log("Game Started Response Data: " + responseData);
         JObject data = ParseData(e);
         try
         {
@@ -101,7 +101,7 @@ public class ServerResponse : MonoBehaviour
     //    int diceValue = int.Parse(data["diceValue"].ToString());
 
     //    PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
-    //    Debug.Log("#SwitchPawns: " + currentPawn);
+    //    Logger.Log("#SwitchPawns: " + currentPawn);
 
     //    if (PlayerInfo.instance.selectedPawn == currentPawn)
     //        DiceController.instance.playerMovementIsFinished = true;
@@ -126,7 +126,7 @@ public class ServerResponse : MonoBehaviour
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
-        Debug.Log("#SwitchPawns: " + currentPawn);
+        Logger.Log("#SwitchPawns: " + currentPawn);
 
 
 
@@ -150,7 +150,7 @@ public class ServerResponse : MonoBehaviour
         JObject data = JObject.Parse(jsonString);
         int diceValue = int.Parse(data["diceValue"].ToString());
 
-        Debug.Log("#RollDice: " + diceValue);
+        Logger.Log("#RollDice: " + diceValue);
         MainThreadDispatcher.Enqueue(() =>
         {
             StartCoroutine(DiceController.instance.RollDice(diceValue));
@@ -192,7 +192,7 @@ public class ServerResponse : MonoBehaviour
         int diceValue = int.Parse(data["diceValue"].ToString());
 
         PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(nextPlayerId);
-        Debug.Log("#PawnFinishedMoving: " + currentPawn);
+        Logger.Log("#PawnFinishedMoving: " + currentPawn);
 
         MainThreadDispatcher.Enqueue(() =>
         {
@@ -215,7 +215,7 @@ public class ServerResponse : MonoBehaviour
 
         UiManager.instance.UpdateUi();
         LocalPlayer.SaveGame();
-        Debug.Log("Registered PlayerId: " + LocalPlayer.playerId);
+        Logger.Log("Registered PlayerId: " + LocalPlayer.playerId);
     }
 
     private void ExitRoom(SocketIOResponse e)
@@ -226,7 +226,7 @@ public class ServerResponse : MonoBehaviour
             string playerId = JsonConvert.DeserializeObject<string>(data["playerId"].ToString());
 
             PawnType exitPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
-            Debug.Log($"Exit triggered by {playerId} | Pawn: {exitPawn}");
+            Logger.Log($"Exit triggered by {playerId} | Pawn: {exitPawn}");
 
             PlayerInfo.instance.RemovePawn(exitPawn);
             UiManager.instance.ExitPanel(exitPawn);
@@ -234,7 +234,7 @@ public class ServerResponse : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.LogError("ExitRoom Error: " + ex.Message);
+            Logger.LogWarning("ExitRoom Error: " + ex.Message);
         }
     }
 
@@ -258,7 +258,7 @@ public class ServerResponse : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.LogError("YouWin Error: " + ex.Message);
+            Logger.LogWarning("YouWin Error: " + ex.Message); 
         }
     }
 
@@ -275,7 +275,7 @@ public class ServerResponse : MonoBehaviour
         MainThreadDispatcher.Enqueue(() =>
         {
                 PawnType pawnType = TempOnlinePlayersData.instance.GetPlayerPawnType(playerId);
-            Debug.Log($"Pawn Movement | Dice: {diceValue}, PawnNo: {pawnNo}");
+            Logger.Log($"Pawn Movement | Dice: {diceValue}, PawnNo: {pawnNo}");
 
             FindAndMoveThePawn(diceValue, pawnNo, pawnType);
         });

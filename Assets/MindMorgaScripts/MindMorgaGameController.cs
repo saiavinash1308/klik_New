@@ -42,7 +42,13 @@ public class MindMorgaGameController : MonoBehaviour
     private SocketManager socketManager;
     private bool isActive = false;
     public float fadeDuration = 2.0f; 
-    public float waitBeforeRedirect = 5.0f; 
+    public float waitBeforeRedirect = 5.0f;
+    private Coroutine turnTimerCoroutine;
+    private const float turnTimeLimit = 10f;
+    public Text turnTimerText;
+    private int cardsPickedThisTurn = 0;
+
+
 
     public GameObject PopUp;
 
@@ -58,7 +64,7 @@ public class MindMorgaGameController : MonoBehaviour
     {
         if (socketManager == null)
         {
-            Debug.LogError("SocketManager not found!");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
 
@@ -73,7 +79,7 @@ public class MindMorgaGameController : MonoBehaviour
     {
         if (users.Length < 2 || users.Length > 4)
         {
-            Debug.LogError("Invalid number of players. The game supports 2 to 4 players.");
+            Logger.LogError("Invalid number of players. The game supports 2 to 4 players.");
             return;
         }
 
@@ -85,7 +91,7 @@ public class MindMorgaGameController : MonoBehaviour
     {
         if (players == null || players.Length < 2)
         {
-            Debug.LogError("Invalid number of players. The game requires at least 2 players.");
+            Logger.LogError("Invalid number of players. The game requires at least 2 players.");
             return;
         }
 
@@ -99,6 +105,20 @@ public class MindMorgaGameController : MonoBehaviour
         StartCoroutine(HandleTurnCoroutine(socketId));
     }
 
+    //private IEnumerator HandleTurnCoroutine(string socketId)
+    //{
+    //    for (int i = 0; i < players.Length; i++)
+    //    {
+    //        if (players[i].socketId == socketId)
+    //        {
+    //            UpdateTurnArrow(i);
+    //            yield return new WaitForSeconds(0.5f);
+    //            break;
+    //        }
+    //    }
+    //    turnSocketId = socketId;
+    //}
+
     private IEnumerator HandleTurnCoroutine(string socketId)
     {
         for (int i = 0; i < players.Length; i++)
@@ -110,8 +130,52 @@ public class MindMorgaGameController : MonoBehaviour
                 break;
             }
         }
+
         turnSocketId = socketId;
+        cardsPickedThisTurn = 0;
+
+        if (turnTimerCoroutine != null)
+        {
+            StopCoroutine(turnTimerCoroutine);
+        }
+
+        turnTimerCoroutine = StartCoroutine(StartTurnTimer());
     }
+
+
+
+    private IEnumerator StartTurnTimer()
+    {
+        float timer = turnTimeLimit;
+
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+
+            // Display remaining seconds (rounded)
+            if (turnTimerText != null)
+            {
+                turnTimerText.text = Mathf.Ceil(timer).ToString() + "s";
+            }
+
+            yield return null;
+        }
+
+        // Clear the text on timeout
+        if (turnTimerText != null)
+        {
+            turnTimerText.text = "0s";
+        }
+
+        // Emit timeout if it's still this player's turn
+        if (socketManager != null && socketManager.isConnected && socketManager.getMySocketId() == turnSocketId)
+        {
+            socketManager.socket.Emit("UPDATE_TURN", "");
+            Logger.Log("TURN_TIMEOUT emitted due to 10s inactivity");
+        }
+    }
+
+
 
     private void UpdateTurnArrow(int playerIndex)
     {
@@ -132,7 +196,7 @@ public class MindMorgaGameController : MonoBehaviour
     {
         GetButtons();
         AddListeners();
-        Debug.Log($"GetStarted called. Buttons count: {btns.Count}");
+        Logger.Log($"GetStarted called. Buttons count: {btns.Count}");
 
     }
 
@@ -158,31 +222,76 @@ public class MindMorgaGameController : MonoBehaviour
         }
     }
 
-    public void ClickButton()  
+    //public void ClickButton()  
+    //{
+    //    if (isActive)
+    //        return;
+    //    if (socketManager != null && socketManager.isConnected)
+    //    {
+    //        if (socketManager.getMySocketId() == turnSocketId)
+    //        {
+    //            GameObject selectedObject = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+    //            string buttonName = selectedObject.name;
+    //            Logger.LogError(selectedObject.name);
+
+    //            isActive = true;
+
+    //            socketManager.socket.Emit("PICK_CARD", buttonName);
+    //            Logger.Log($"PICK_CARD emitted for {buttonName}");
+
+
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Logger.LogWarning("SocketManager is not connected. Cannot emit PICK_CARD.");
+    //    }
+    //}
+    public void ClickButton()
     {
         if (isActive)
             return;
+
         if (socketManager != null && socketManager.isConnected)
         {
             if (socketManager.getMySocketId() == turnSocketId)
             {
                 GameObject selectedObject = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
                 string buttonName = selectedObject.name;
-                Debug.LogError(selectedObject.name);
+                Logger.LogWarning(selectedObject.name);
 
                 isActive = true;
 
                 socketManager.socket.Emit("PICK_CARD", buttonName);
-                Debug.Log($"PICK_CARD emitted for {buttonName}");
+                Logger.Log($"PICK_CARD emitted for {buttonName}");
 
+                // Track the number of picks
+                cardsPickedThisTurn++;
 
+                if (cardsPickedThisTurn >= 2)
+                {
+                    // Cancel turn timer after second pick
+                    if (turnTimerCoroutine != null)
+                    {
+                        StopCoroutine(turnTimerCoroutine);
+                        turnTimerCoroutine = null;
+                    }
+
+                    if (turnTimerText != null)
+                    {
+                        turnTimerText.text = "";
+                    }
+
+                    cardsPickedThisTurn = 0; // Reset for next turn
+                }
             }
         }
         else
         {
-            Debug.LogWarning("SocketManager is not connected. Cannot emit PICK_CARD.");
+            Logger.LogWarning("SocketManager is not connected. Cannot emit PICK_CARD.");
         }
     }
+
 
     public void LoadCardSprite()
     {
@@ -191,7 +300,7 @@ public class MindMorgaGameController : MonoBehaviour
         CardData cardData = socketManager.GetCardData();
         if (cardData == null)
         {
-            Debug.LogWarning("No stored card data available.");
+            Logger.LogWarning("No stored card data available.");
             return;
         }
 
@@ -200,7 +309,7 @@ public class MindMorgaGameController : MonoBehaviour
 
         if (index < 0 || index >= btns.Count)
         {
-            Debug.LogWarning($"Invalid card index: {index}");
+            Logger.LogWarning($"Invalid card index: {index}");
             return;
         }
 
@@ -216,10 +325,10 @@ public class MindMorgaGameController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"Sprite {cardName} not found in the loaded images!");
+            Logger.LogWarning($"Sprite {cardName} not found in the loaded images!");
         }
 
-        Debug.Log($"Card displayed: Index = {index}, Card = {cardName}");
+        Logger.Log($"Card displayed: Index = {index}, Card = {cardName}");
 
         StartCoroutine(RevertCardAppearance(selectedObject));
     }
@@ -238,7 +347,7 @@ public class MindMorgaGameController : MonoBehaviour
     {
         if (index1 < 0 || index1 >= btns.Count || index2 < 0 || index2 >= btns.Count)
         {
-            Debug.LogWarning($"Invalid indices: {index1}, {index2}");
+            Logger.LogWarning($"Invalid indices: {index1}, {index2}");
             return;
         }
 
@@ -252,7 +361,7 @@ public class MindMorgaGameController : MonoBehaviour
 
         secondObject.transform.GetChild(0).gameObject.SetActive(true);
 
-        Debug.Log($"Cards closing: {index1}, {index2}");
+        Logger.Log($"Cards closing: {index1}, {index2}");
 
         StartCoroutine(RevertClosedCards(firstObject, firstButton, secondObject, secondButton));
 
@@ -261,7 +370,7 @@ public class MindMorgaGameController : MonoBehaviour
             if (socketManager.getMySocketId() == turnSocketId)
             {
                 socketManager.socket.Emit("UPDATE_TURN", "");
-                Debug.Log($"Update turn emitted");
+                Logger.Log($"Update turn emitted");
             }
         }
     }
@@ -276,31 +385,64 @@ public class MindMorgaGameController : MonoBehaviour
         secondButton.image.sprite = bgImage;
         secondObject.transform.GetChild(0).gameObject.SetActive(false);
 
-        Debug.Log("Both cards reset at the same time.");
+        Logger.Log("Both cards reset at the same time.");
     }
 
 
 
 
-    public void DisableMatchedCards(int index1, int index2, int score1, int score2)
+    //public void DisableMatchedCards(int index1, int index2, int score1, int score2)
+    //{
+    //    Button firstButton = btns[index1];
+    //    if (firstButton != null)
+    //    {
+    //        firstButton.gameObject.SetActive(false);  
+    //    }
+
+    //    Button secondButton = btns[index2];
+    //    if (secondButton != null)
+    //    {
+    //        secondButton.gameObject.SetActive(false);  
+    //    }
+
+    //    Logger.Log("Matched cards disabled: " + index1 + ", " + index2);
+
+    //    player1Score.text = score1.ToString();
+    //    player2Score.text = score2.ToString();
+    //}
+
+    private int player1CurrentScore = 0;
+    private int player2CurrentScore = 0;
+
+    public void DisableMatchedCards(int index1, int index2)
     {
         Button firstButton = btns[index1];
         if (firstButton != null)
         {
-            firstButton.gameObject.SetActive(false);  
+            firstButton.gameObject.SetActive(false);
         }
 
         Button secondButton = btns[index2];
         if (secondButton != null)
         {
-            secondButton.gameObject.SetActive(false);  
+            secondButton.gameObject.SetActive(false);
         }
 
-        Debug.Log("Matched cards disabled: " + index1 + ", " + index2);
+        Logger.Log("Matched cards disabled: " + index1 + ", " + index2);
 
-        player1Score.text = score1.ToString();
-        player2Score.text = score2.ToString();
+        // Determine whose turn it is
+        if (turnSocketId == players[0].socketId)
+        {
+            player1CurrentScore++;
+            player1Score.text = player1CurrentScore.ToString();
+        }
+        else if (turnSocketId == players[1].socketId)
+        {
+            player2CurrentScore++;
+            player2Score.text = player2CurrentScore.ToString();
+        }
     }
+
 
     public void EndGame(string winnerId, int score1, int score2)
     {
@@ -358,7 +500,9 @@ public class MindMorgaGameController : MonoBehaviour
 
     public void QuitToHome()
     {
-        SceneManager.LoadScene("Home"); 
+        SceneManager.LoadScene("Home");
+        socketManager.socket.Emit("EXIT_ROOM", "");
+        Logger.Log($"Exit room Emitted");
     }
     public void ClosePopup()
     {

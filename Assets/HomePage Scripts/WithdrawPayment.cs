@@ -28,14 +28,14 @@ public class WithdrawPayment : MonoBehaviour
     public void OnSubmitButtonClick()
     {
         string authToken = PlayerPrefs.GetString("AuthToken");
-        Debug.Log("AuthToken" + authToken);
+        Logger.Log("AuthToken" + authToken);
 
         string amount = amountInputField.text;
-        Debug.Log("amount: " + amount);
+        Logger.Log("amount: " + amount);
 
         if (string.IsNullOrEmpty(authToken) || string.IsNullOrEmpty(amount))
         {
-            Debug.LogError("Auth token or amount is missing.");
+            Logger.LogError("Network error. Please try again.");
             return;
         }
         Loading.SetActive(true);
@@ -49,7 +49,7 @@ public class WithdrawPayment : MonoBehaviour
 
         // Prepare JSON data
         string jsonData = JsonUtility.ToJson(new UserTransaction { amount = amount });
-        Debug.Log(jsonData);
+        Logger.Log(jsonData);
 
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
@@ -58,14 +58,14 @@ public class WithdrawPayment : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("authorization", authToken);
 
-        Debug.Log("Transaction Request Data: " + jsonData);
+        Logger.Log("Transaction Request Data: " + jsonData);
 
         yield return request.SendWebRequest();
 
         // Check for errors
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Request failed: " + request.error);
+            Logger.LogError("Network error. Please try again.");
             ShowStatusMessage("Request failed. Kindly enter an amount greater than or equal to 200.");
             Loading.SetActive(false);
         }
@@ -82,7 +82,7 @@ public class WithdrawPayment : MonoBehaviour
             else
             {
                 // Log the response if successful
-                Debug.Log("Request successful! Response: " + request.downloadHandler.text);
+                Logger.Log("Request successful! Response: " + request.downloadHandler.text);
                 ShowStatusMessage("Request successful! The amount will be credited in the next 24 hours...");
 
                 // Delay before hiding the panel

@@ -25,7 +25,7 @@ public class FetchUserProfile : MonoBehaviour
         string authToken = PlayerPrefs.GetString(tokenKey, null);
         if (string.IsNullOrEmpty(authToken))
         {
-            Debug.LogError("Authorization token is missing.");
+            Logger.LogError("Network error. Please try again.");
             yield break;
         }
 
@@ -38,16 +38,16 @@ public class FetchUserProfile : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             string responseText = request.downloadHandler.text;
-            Debug.Log("Response from API: " + responseText);
+            Logger.Log("Response from API: " + responseText);
 
             ProfileResponse profileResponse = JsonUtility.FromJson<ProfileResponse>(responseText);
 
             if (profileResponse != null && profileResponse.user != null)
             {
-                Debug.Log("Parsed Username: " + profileResponse.user.username);
-                Debug.Log("Parsed Mobile: " + profileResponse.user.mobile);
-                Debug.Log("Parsed Total Matches: " + profileResponse.user.totalMatches);
-                Debug.Log("Parsed Matches Won: " + profileResponse.user.matchesWon);
+                Logger.Log("Parsed Username: " + profileResponse.user.username);
+                Logger.Log("Parsed Mobile: " + profileResponse.user.mobile);
+                Logger.Log("Parsed Total Matches: " + profileResponse.user.totalMatches);
+                Logger.Log("Parsed Matches Won: " + profileResponse.user.matchesWon);
 
                 int matchesLost = profileResponse.user.totalMatches - profileResponse.user.matchesWon;
 
@@ -67,12 +67,12 @@ public class FetchUserProfile : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Failed to parse profile response.");
+                Logger.LogWarning("Failed to parse profile response.");
             }
         }
         else
         {
-            Debug.LogError("Error fetching profile data: " + request.error);
+            Logger.LogWarning("Error fetching profile data: " + request.error);
         }
     }
 }

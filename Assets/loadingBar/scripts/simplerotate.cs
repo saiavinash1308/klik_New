@@ -22,7 +22,7 @@ public class simplerotate : MonoBehaviour {
     {
         currentvalue = currentvalue + (Time.deltaTime * rotateSpeed);
 
-        //Debug.Log("currnet Value is " + currentvalue);
+        //Logger.Log("currnet Value is " + currentvalue);
 
         rectComponent.transform.rotation = Quaternion.Euler(0f, 0f, -72f * (int)currentvalue);
     }
