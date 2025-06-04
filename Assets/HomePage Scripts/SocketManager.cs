@@ -28,16 +28,15 @@ public class SocketManager : MonoBehaviour
     private float prizePool;
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            InitializeSocket();
+            Destroy(this.gameObject); 
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        InitializeSocket();
     }
 
     private IEnumerator EmitAddUserEventWhenConnected()
@@ -63,8 +62,8 @@ public class SocketManager : MonoBehaviour
 
     internal void InitializeSocket()
     {
-        //var url = "http://localhost:3000/";
-        var url = "https://sockets-klik.fivlog.space/";
+        var url = "https://backend-production-51f8.up.railway.app/";
+        //var url = "https://sockets-klik.fivlog.space/";
         var uri = new Uri(url);
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
@@ -74,7 +73,7 @@ public class SocketManager : MonoBehaviour
         socket.JsonSerializer = new NewtonsoftJsonSerializer();
 
         socket.OnConnected += OnConnected;
-         socket.OnDisconnected += OnDisconnected; // Register for disconnection
+         socket.OnDisconnected += OnDisconnected;
 
         Logger.Log("Connecting to server...");
         socket.Connect();
@@ -207,6 +206,7 @@ public class SocketManager : MonoBehaviour
                 return;
             }
             roomId = gameStartData.roomId;
+            Logger.LogWarning($"{roomId}");
             prizePool = gameStartData.prizePool;
             Logger.Log($"Number of users: {gameStartData.users.Length}");
             users = new User[gameStartData.users.Length];
@@ -303,8 +303,8 @@ public class SocketManager : MonoBehaviour
         var jsonData = JsonUtility.FromJson<MatchCardsData>(cardData.ToString());
         MainThreadDispatcher.Enqueue(() =>
         {
-            //MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2, jsonData.score1, jsonData.score2);
-            MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2);
+            MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2, jsonData.score1, jsonData.score2);
+            //MindMorgaGameController.Mindgame.DisableMatchedCards(jsonData.index1, jsonData.index2);
             Logger.Log("Match card data Received");
         });
     }

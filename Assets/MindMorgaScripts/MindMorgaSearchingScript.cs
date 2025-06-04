@@ -23,9 +23,15 @@ public class MindMorgaSearchScript : MonoBehaviour
 
     void Awake()
     {
+        if (Searching != null && Searching != this)
+        {
+            Destroy(Searching.gameObject);
+        }
+
         Searching = this;
         socketManager = FindObjectOfType<SocketManager>();
     }
+
 
     void Start()
     {
@@ -34,6 +40,7 @@ public class MindMorgaSearchScript : MonoBehaviour
             Logger.LogError("Network error. Please try again.");
             return; // Exit early to avoid null reference later
         }
+       
         int savedIndex = PlayerPrefs.GetInt("SelectedAvatar", 0);
         Sprite selectedAvatar = avatarSprites[savedIndex];
 
@@ -113,4 +120,5 @@ public class MindMorgaSearchScript : MonoBehaviour
             PopUp.SetActive(false);
         }
     }
+
 }

@@ -44,7 +44,7 @@ public class MindMorgaGameController : MonoBehaviour
     public float fadeDuration = 2.0f; 
     public float waitBeforeRedirect = 5.0f;
     private Coroutine turnTimerCoroutine;
-    private const float turnTimeLimit = 10f;
+    private const float turnTimeLimit = 15f;
     public Text turnTimerText;
     private int cardsPickedThisTurn = 0;
 
@@ -170,7 +170,7 @@ public class MindMorgaGameController : MonoBehaviour
         // Emit timeout if it's still this player's turn
         if (socketManager != null && socketManager.isConnected && socketManager.getMySocketId() == turnSocketId)
         {
-            socketManager.socket.Emit("UPDATE_TURN", "");
+            socketManager.EmitEvent("UPDATE_TURN", "");
             Logger.Log("TURN_TIMEOUT emitted due to 10s inactivity");
         }
     }
@@ -179,18 +179,34 @@ public class MindMorgaGameController : MonoBehaviour
 
     private void UpdateTurnArrow(int playerIndex)
     {
-        arrowPlayer1.localScale = originalScale;
-        arrowPlayer2.localScale = originalScale;
-
-        if (playerIndex == 0)
-        {
-            arrowPlayer1.localScale = enlargedScale;
-        }
-        else if (playerIndex == 1)
-        {
-            arrowPlayer2.localScale = enlargedScale;
-        }
+        // Always keep arrows active
+        SetArrowAlphaAndScale(arrowPlayer1, playerIndex == 0);
+        SetArrowAlphaAndScale(arrowPlayer2, playerIndex == 1);
     }
+
+    private void SetArrowAlphaAndScale(Transform arrow, bool isActive)
+    {
+        // Make sure child is active
+        if (arrow.childCount > 0)
+        {
+            GameObject child = arrow.GetChild(0).gameObject;
+            if (!child.activeSelf)
+                child.SetActive(true);
+        }
+
+        // Adjust parent alpha
+        Image image = arrow.GetComponent<Image>();
+        if (image != null)
+        {
+            Color color = image.color;
+            color.a = isActive ? 1f : 0f;
+            image.color = color;
+        }
+
+        // Adjust scale
+        arrow.localScale = isActive ? enlargedScale : originalScale;
+    }
+
 
     public void GetStarted()
     {
@@ -236,7 +252,7 @@ public class MindMorgaGameController : MonoBehaviour
 
     //            isActive = true;
 
-    //            socketManager.socket.Emit("PICK_CARD", buttonName);
+    //            socketManager.EmitEvent("PICK_CARD", buttonName);
     //            Logger.Log($"PICK_CARD emitted for {buttonName}");
 
 
@@ -262,7 +278,7 @@ public class MindMorgaGameController : MonoBehaviour
 
                 isActive = true;
 
-                socketManager.socket.Emit("PICK_CARD", buttonName);
+                socketManager.EmitEvent("PICK_CARD", buttonName);
                 Logger.Log($"PICK_CARD emitted for {buttonName}");
 
                 // Track the number of picks
@@ -369,7 +385,7 @@ public class MindMorgaGameController : MonoBehaviour
         {
             if (socketManager.getMySocketId() == turnSocketId)
             {
-                socketManager.socket.Emit("UPDATE_TURN", "");
+                socketManager.EmitEvent("UPDATE_TURN", "");
                 Logger.Log($"Update turn emitted");
             }
         }
@@ -391,30 +407,7 @@ public class MindMorgaGameController : MonoBehaviour
 
 
 
-    //public void DisableMatchedCards(int index1, int index2, int score1, int score2)
-    //{
-    //    Button firstButton = btns[index1];
-    //    if (firstButton != null)
-    //    {
-    //        firstButton.gameObject.SetActive(false);  
-    //    }
-
-    //    Button secondButton = btns[index2];
-    //    if (secondButton != null)
-    //    {
-    //        secondButton.gameObject.SetActive(false);  
-    //    }
-
-    //    Logger.Log("Matched cards disabled: " + index1 + ", " + index2);
-
-    //    player1Score.text = score1.ToString();
-    //    player2Score.text = score2.ToString();
-    //}
-
-    private int player1CurrentScore = 0;
-    private int player2CurrentScore = 0;
-
-    public void DisableMatchedCards(int index1, int index2)
+    public void DisableMatchedCards(int index1, int index2, int score1, int score2)
     {
         Button firstButton = btns[index1];
         if (firstButton != null)
@@ -430,18 +423,41 @@ public class MindMorgaGameController : MonoBehaviour
 
         Logger.Log("Matched cards disabled: " + index1 + ", " + index2);
 
-        // Determine whose turn it is
-        if (turnSocketId == players[0].socketId)
-        {
-            player1CurrentScore++;
-            player1Score.text = player1CurrentScore.ToString();
-        }
-        else if (turnSocketId == players[1].socketId)
-        {
-            player2CurrentScore++;
-            player2Score.text = player2CurrentScore.ToString();
-        }
+        player1Score.text = score1.ToString();
+        player2Score.text = score2.ToString();
     }
+
+    //private int player1CurrentScore = 0;
+    //private int player2CurrentScore = 0;
+
+    //public void DisableMatchedCards(int index1, int index2)
+    //{
+    //    Button firstButton = btns[index1];
+    //    if (firstButton != null)
+    //    {
+    //        firstButton.gameObject.SetActive(false);
+    //    }
+
+    //    Button secondButton = btns[index2];
+    //    if (secondButton != null)
+    //    {
+    //        secondButton.gameObject.SetActive(false);
+    //    }
+
+    //    Logger.Log("Matched cards disabled: " + index1 + ", " + index2);
+
+    //    // Determine whose turn it is
+    //    if (turnSocketId == players[0].socketId)
+    //    {
+    //        player1CurrentScore++;
+    //        player1Score.text = player1CurrentScore.ToString();
+    //    }
+    //    else if (turnSocketId == players[1].socketId)
+    //    {
+    //        player2CurrentScore++;
+    //        player2Score.text = player2CurrentScore.ToString();
+    //    }
+    //}
 
 
     public void EndGame(string winnerId, int score1, int score2)
@@ -501,7 +517,7 @@ public class MindMorgaGameController : MonoBehaviour
     public void QuitToHome()
     {
         SceneManager.LoadScene("Home");
-        socketManager.socket.Emit("EXIT_ROOM", "");
+        socketManager.EmitEvent("EXIT_ROOM", "");
         Logger.Log($"Exit room Emitted");
     }
     public void ClosePopup()

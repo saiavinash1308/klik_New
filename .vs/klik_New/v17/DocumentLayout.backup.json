@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\socketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\mindmorgascripts\\mindmorgasearchingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\mindmorgascripts\\mindmorgasearchingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\home\\desktop\\avinash projects\\klik_new\\assets\\homepage scripts\\socketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\socketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\home\\desktop\\avinash projects\\klik_new\\assets\\homepage scripts\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\mindmorgascripts\\mindmorgagamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\mindmorgascripts\\mindmorgagamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\payemtscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\payemtscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\mindmorgascripts\\addbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\mindmorgascripts\\addbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\homepagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\homepagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\gamefetcherscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\gamefetcherscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sign up\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sign up\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\fetchwalletamount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,24 +47,8 @@
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\fetchuserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\youwinpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\youwinpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\ludogamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,35 +59,71 @@
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\analyseandregisteronlineplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\mindmorgascripts\\mindmorgagamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\mindmorgascripts\\mindmorgagamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\pawnspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\pawnspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\mindmorgascripts\\mindmorgasearchingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\mindmorgascripts\\mindmorgasearchingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sign in\\loginmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sign in\\loginmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\scripts\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sharebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sharebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sign up\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sign up\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\otp\\otpmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\otp\\otpmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\withdrawpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\withdrawpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\gamefetcherscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\gamefetcherscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\transactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\transactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|c:\\users\\home\\desktop\\avinash projects\\klik_new\\assets\\errormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\spriteanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\spriteanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\payemtscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\payemtscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\debugtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\debugtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\scripts\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\errormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\errormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -95,36 +135,16 @@
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\checkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\debugtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\debugtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\splash screen\\splashscreencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\splash screen\\splashscreencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sharebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sharebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\scripts\\swipe_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipe_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\otp\\otpmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\otp\\otpmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\footerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\footerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\withdrawpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\withdrawpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\homepage scripts\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\homepage scripts\\settingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,10 +153,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\popupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\popupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\script\\sign in\\loginmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\sign in\\loginmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16B1AEA-0FDF-B97E-6B79-99D597B1FF06}|Assembly-CSharp.csproj|C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\assets\\c#\\pawntimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -186,141 +202,313 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Cards.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Cards.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\Cards.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Cards.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\Cards.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAcwJYAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "AddButtons.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\AddButtons.cs",
+              "RelativeDocumentMoniker": "Assets\\MindMorgaScripts\\AddButtons.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\AddButtons.cs",
+              "RelativeToolTip": "Assets\\MindMorgaScripts\\AddButtons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:24:43.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-03T10:57:38.025Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Logger.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Logger.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\Logger.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Logger.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\Logger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MindMorgaGameController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
+              "RelativeDocumentMoniker": "Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
+              "RelativeToolTip": "Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAUwNYAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T07:10:44.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ServerRequest.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerRequest.cs",
-              "RelativeDocumentMoniker": "Assets\\c#\\ServerRequest.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerRequest.cs",
-              "RelativeToolTip": "Assets\\c#\\ServerRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T05:25:20.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T10:37:03.029Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ServerResponse.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerResponse.cs",
-              "RelativeDocumentMoniker": "Assets\\c#\\ServerResponse.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerResponse.cs",
-              "RelativeToolTip": "Assets\\c#\\ServerResponse.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwCQAAAAbAAAAAAAAAA==",
+              "Title": "SignUpController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign Up\\SignUpController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Sign Up\\SignUpController.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign Up\\SignUpController.cs",
+              "RelativeToolTip": "Assets\\Script\\Sign Up\\SignUpController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T04:23:52.829Z",
+              "WhenOpened": "2025-05-28T07:03:12.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameFetcherScript.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\GameFetcherScript.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\GameFetcherScript.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\GameFetcherScript.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\GameFetcherScript.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAcwKUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:08:48.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MindMorgaSearchingScript.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
+              "RelativeDocumentMoniker": "Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
+              "RelativeToolTip": "Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAABoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T09:28:58.672Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "EditProfile.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\EditProfile.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\EditProfile.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\EditProfile.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\EditProfile.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwDgAAAATAAAAAAAAAA==",
+              "Title": "ServerRequest.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerRequest.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ServerRequest.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerRequest.cs",
+              "RelativeToolTip": "Assets\\c#\\ServerRequest.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwCAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T06:24:59.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FetchUserProfile.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchUserProfile.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\FetchUserProfile.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchUserProfile.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\FetchUserProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T07:09:02.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FetchWalletAmount.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchWalletAmount.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\FetchWalletAmount.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchWalletAmount.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\FetchWalletAmount.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAcwDwAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:25:05.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T05:25:20.948Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "HomePageManager.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\HomePageManager.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\HomePageManager.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\HomePageManager.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\HomePageManager.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAUwJQAAAAbAAAAAAAAAA==",
+              "Title": "ServerResponse.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerResponse.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\ServerResponse.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerResponse.cs",
+              "RelativeToolTip": "Assets\\c#\\ServerResponse.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowDkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T06:24:05.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T04:23:52.829Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PayemtScript.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\PayemtScript.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\PayemtScript.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\PayemtScript.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\PayemtScript.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAvwHkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:27:05.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SocketManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\SocketManager.cs",
               "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\SocketManager.cs",
               "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\SocketManager.cs",
               "RelativeToolTip": "Assets\\HomePage Scripts\\SocketManager.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAIA6wMEAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAIBJwEAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T10:40:35.899Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomePageManager.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\HomePageManager.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\HomePageManager.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\HomePageManager.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\HomePageManager.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwC4AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T06:24:05.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FetchWalletAmount.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchWalletAmount.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\FetchWalletAmount.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchWalletAmount.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\FetchWalletAmount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:25:05.561Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "FetchUserProfile.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchUserProfile.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\FetchUserProfile.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FetchUserProfile.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\FetchUserProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T07:09:02.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "YouWinPanel.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\YouWinPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\YouWinPanel.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\YouWinPanel.cs",
+              "RelativeToolTip": "Assets\\c#\\YouWinPanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T07:30:28.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AnalyseAndRegisterOnlinePlayers.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "RelativeToolTip": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T05:51:03.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PawnSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\PawnSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\PawnSpawner.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\PawnSpawner.cs",
+              "RelativeToolTip": "Assets\\c#\\PawnSpawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T06:08:58.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LudoGameManager.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\LudoGameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\c#\\LudoGameManager.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\LudoGameManager.cs",
+              "RelativeToolTip": "Assets\\c#\\LudoGameManager.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T09:23:58.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginManager.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign In\\LoginManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Sign In\\LoginManager.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign In\\LoginManager.cs",
+              "RelativeToolTip": "Assets\\Script\\Sign In\\LoginManager.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAwFwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:23:57.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ShareButton.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\ShareButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\ShareButton.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\ShareButton.cs",
+              "RelativeToolTip": "Assets\\Script\\ShareButton.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAwB4AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T09:54:58.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OTPManager.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\OTP\\OTPManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\OTP\\OTPManager.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\OTP\\OTPManager.cs",
+              "RelativeToolTip": "Assets\\Script\\OTP\\OTPManager.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAwFwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T07:02:46.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "WithdrawPayment.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\WithdrawPayment.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\WithdrawPayment.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\WithdrawPayment.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\WithdrawPayment.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAwEMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:27:22.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "wallet.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\wallet.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\wallet.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\wallet.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\wallet.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwDIAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:26:43.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TransactionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\TransactionFilter.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\TransactionFilter.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\TransactionFilter.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\TransactionFilter.cs",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAAwGYBAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T08:41:55.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SpriteAnimator.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\SpriteAnimator.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\SpriteAnimator.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\SpriteAnimator.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\SpriteAnimator.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAwB0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T04:27:40.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PayemtScript.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\PayemtScript.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\PayemtScript.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\PayemtScript.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\PayemtScript.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAwHkAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T11:27:05.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Logger.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\Logger.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Logger.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\Logger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T07:10:44.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DebugToggle.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\DebugToggle.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\DebugToggle.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\DebugToggle.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\DebugToggle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T07:05:20.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\Player.cs",
@@ -328,64 +516,35 @@
               "RelativeToolTip": "Assets\\c#\\Player.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAvwDIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T07:33:43.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T07:33:43.645Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LudoGameManager.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\LudoGameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\c#\\LudoGameManager.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\LudoGameManager.cs",
-              "RelativeToolTip": "Assets\\c#\\LudoGameManager.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAvwCMAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 25,
+              "Title": "EditProfile.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\EditProfile.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\EditProfile.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\EditProfile.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\EditProfile.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwDgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T09:23:58.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T06:24:59.417Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AnalyseAndRegisterOnlinePlayers.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
-              "RelativeDocumentMoniker": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
-              "RelativeToolTip": "Assets\\c#\\AnalyseAndRegisterOnlinePlayers.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAcwEkAAABIAAAAAAAAAA==",
+              "DocumentIndex": 26,
+              "Title": "Cards.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Cards.cs",
+              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\Cards.cs",
+              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\Cards.cs",
+              "RelativeToolTip": "Assets\\HomePage Scripts\\Cards.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAcwJYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T05:51:03.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T11:24:43.514Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MindMorgaGameController.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
-              "RelativeDocumentMoniker": "Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
-              "RelativeToolTip": "Assets\\MindMorgaScripts\\MindMorgaGameController.cs",
-              "ViewState": "AgIAAI4BAAAAAAAAAAAswJ8BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:37:03.029Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MindMorgaSearchingScript.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
-              "RelativeDocumentMoniker": "Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
-              "RelativeToolTip": "Assets\\MindMorgaScripts\\MindMorgaSearchingScript.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwEgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T09:28:58.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 28,
               "Title": "DeviceManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Scripts\\DeviceManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DeviceManager.cs",
@@ -393,25 +552,11 @@
               "RelativeToolTip": "Assets\\Scripts\\DeviceManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T05:20:45.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T05:20:45.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SignUpController.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign Up\\SignUpController.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Sign Up\\SignUpController.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign Up\\SignUpController.cs",
-              "RelativeToolTip": "Assets\\Script\\Sign Up\\SignUpController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T07:03:12.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 29,
               "Title": "UiManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\UiManager.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\UiManager.cs",
@@ -419,38 +564,11 @@
               "RelativeToolTip": "Assets\\c#\\UiManager.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAcwIYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:17:33.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T06:17:33.35Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "GameFetcherScript.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\GameFetcherScript.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\GameFetcherScript.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\GameFetcherScript.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\GameFetcherScript.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAAuwMgAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T06:08:48.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "TransactionFilter.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\TransactionFilter.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\TransactionFilter.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\TransactionFilter.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\TransactionFilter.cs",
-              "ViewState": "AgIAAG8BAAAAAAAAAAA4wBMBAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T08:41:55.922Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "ErrorManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\ErrorManager.cs",
               "RelativeDocumentMoniker": "Assets\\ErrorManager.cs",
@@ -458,12 +576,11 @@
               "RelativeToolTip": "Assets\\ErrorManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T07:22:36.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T07:22:36.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "SplashScreenController.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\splash screen\\SplashScreenController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\splash screen\\SplashScreenController.cs",
@@ -475,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 35,
               "Title": "FooterScript.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\FooterScript.cs",
               "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\FooterScript.cs",
@@ -487,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 32,
               "Title": "checkManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\checkManager.cs",
               "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\checkManager.cs",
@@ -499,19 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DebugToggle.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\DebugToggle.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\DebugToggle.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\DebugToggle.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\DebugToggle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T07:05:20.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 31,
               "Title": "TwoPlayers.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\TwoPlayers.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\TwoPlayers.cs",
@@ -523,19 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ShareButton.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\ShareButton.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ShareButton.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\ShareButton.cs",
-              "RelativeToolTip": "Assets\\Script\\ShareButton.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAIwEMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T09:54:58.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "swipe_menu.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Scripts\\swipe_menu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\swipe_menu.cs",
@@ -547,31 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "OTPManager.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\OTP\\OTPManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\OTP\\OTPManager.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\OTP\\OTPManager.cs",
-              "RelativeToolTip": "Assets\\Script\\OTP\\OTPManager.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAUwJgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T07:02:46.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "LoginManager.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign In\\LoginManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Sign In\\LoginManager.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\Sign In\\LoginManager.cs",
-              "RelativeToolTip": "Assets\\Script\\Sign In\\LoginManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:23:57.352Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "PopupController.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\Script\\PopupController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PopupController.cs",
@@ -583,31 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "wallet.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\wallet.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\wallet.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\wallet.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\wallet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:26:43.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "WithdrawPayment.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\WithdrawPayment.cs",
-              "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\WithdrawPayment.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\WithdrawPayment.cs",
-              "RelativeToolTip": "Assets\\HomePage Scripts\\WithdrawPayment.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwC8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:27:22.061Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "SettingsManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\HomePage Scripts\\SettingsManager.cs",
               "RelativeDocumentMoniker": "Assets\\HomePage Scripts\\SettingsManager.cs",
@@ -619,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "ServerApisEnum.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ServerApisEnum.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\ServerApisEnum.cs",
@@ -631,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 41,
               "Title": "FourPlayers.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\FourPlayers.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\FourPlayers.cs",
@@ -643,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 44,
               "Title": "ProfilePicture.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\ProfilePicture.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\ProfilePicture.cs",
@@ -655,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "DiceController.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\DiceController.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\DiceController.cs",
@@ -667,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "PawnTimer.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\PawnTimer.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\PawnTimer.cs",
@@ -679,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 42,
               "Title": "OnlinePlayersProfileManager.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\OnlinePlayersProfileManager.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\OnlinePlayersProfileManager.cs",
@@ -691,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 43,
               "Title": "TempOnlinePlayersData.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\TempOnlinePlayersData.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\TempOnlinePlayersData.cs",
@@ -703,7 +748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 45,
               "Title": "MindMorgaLoading.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\MindMorgaLoading.cs",
               "RelativeDocumentMoniker": "Assets\\MindMorgaLoading.cs",
@@ -715,7 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 46,
               "Title": "PawnMovementController.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\PawnMovementController.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\PawnMovementController.cs",
@@ -727,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 47,
               "Title": "PawnInputAnalizer.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\Avinash Projects\\klik_New\\Assets\\c#\\PawnInputAnalizer.cs",
               "RelativeDocumentMoniker": "Assets\\c#\\PawnInputAnalizer.cs",

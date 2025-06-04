@@ -25,6 +25,7 @@ class LudoGameManager : MonoBehaviour
         else
         {
             ServerRequest.instance.serverConnection = true;
+            print("Internet connection available");
 
         }
     }

@@ -23,12 +23,12 @@ public class ServerRequest : MonoBehaviour
         }
     }
 
-    public void OnGameStarted()
-    {
-        if (serverConnection) return;
-        var playerId = new { LocalPlayer.playerId };
-        socket.EmitEvent(ServerRequestApi.ON_GAME_STARTED.ToString(), JsonConvert.SerializeObject(playerId));
-    }
+    //public void OnGameStarted()
+    //{
+    //    if (serverConnection) return;
+    //    var playerId = new { LocalPlayer.playerId };
+    //    socket.EmitEvent(ServerRequestApi.ON_GAME_STARTED.ToString(), JsonConvert.SerializeObject(playerId));
+    //}
 
     public void RollDice(int diceValue, PawnType pawn)
     {

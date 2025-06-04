@@ -11,7 +11,8 @@ class UiManager : MonoBehaviour
     [SerializeField] private GameObject _modePanel;
     [SerializeField] private GameObject _splachScreenPanel;
     [SerializeField] private TextMeshProUGUI _userId;
-
+    public GameObject PopUp;
+    private SocketManager socketManager;
     private DiceAI _diceAI;
     private ProfleImagePawnTypeMapper _profleImagePawnTypeMapper;
 
@@ -24,10 +25,15 @@ class UiManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        socketManager = FindObjectOfType<SocketManager>();
     }
     private void Start()
     {
-
+        if (socketManager == null)
+        {
+            Logger.LogError("Network error. Please try again.");
+            return; // Exit early to avoid null reference later
+        }
         //onlinePlayers.text = "1";
         _diceAI = GetComponent<DiceAI>();
         _profleImagePawnTypeMapper = GetComponent<ProfleImagePawnTypeMapper>();
@@ -161,6 +167,32 @@ class UiManager : MonoBehaviour
     public void UpdateUi()
     {
         _userId.text = LocalPlayer.playerId;
+    }
+
+    public void EnablePopUp()
+    {
+        PopUp.SetActive(true);
+    }
+
+    public void QuitToHome()
+    {
+        if (socketManager != null && socketManager.isConnected)
+        {
+            socketManager.socket.Emit("QUIT_GAME", " ");
+            Logger.Log("Sent game quit");
+            SceneManager.LoadScene("Home");
+        }
+        else
+        {
+            Logger.LogWarning("Socket is not connected. Cannot send game ID.");
+        }
+    }
+    public void ClosePopup()
+    {
+        if (PopUp != null)
+        {
+            PopUp.SetActive(false);
+        }
     }
 
 }

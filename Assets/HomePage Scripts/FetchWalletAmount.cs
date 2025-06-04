@@ -6,6 +6,7 @@ using System.Collections;
 public class FetchWalletAmount : MonoBehaviour
 {
     public Text[] walletAmountTexts;
+    public Text[] referralIdTexts;
 
     private const string apiUrl = "https://backend-klik.fivlog.space/api/wallet/getWalletAmount";
     //private const string apiUrl = "http://localhost:3001/api/wallet/getWalletAmount";
@@ -50,6 +51,12 @@ public class FetchWalletAmount : MonoBehaviour
                 {
                     walletText.text = "₹ " + walletResponse.amount.ToString("N0");
                 }
+
+                foreach (Text text in referralIdTexts)
+                {
+                    if (text != null)
+                        text.text = walletResponse.referralId;
+                }
             }
             else
             {
@@ -67,6 +74,7 @@ public class FetchWalletAmount : MonoBehaviour
 public class WalletResponse
 {
     public float amount;
+    public string referralId;
 }
 //using UnityEngine;
 //using UnityEngine.UI;

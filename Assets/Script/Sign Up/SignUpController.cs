@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using System.Text;
 using System.Collections; 
 using UnityEngine.UI;
+using static PaymentScript;
 
 public class SignUpManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class SignUpManager : MonoBehaviour
     public TMP_InputField nameInputField;
     public TMP_Text DeviceId;
     public TMP_InputField mobileInputField;
-    //public TMP_InputField referInputField;
+    public TMP_InputField referInputField;
     public GameObject Loading;
     public TextMeshProUGUI statusMessageText;
     public GameObject SignInPanel;
@@ -71,6 +72,7 @@ public class SignUpManager : MonoBehaviour
         string name = nameInputField.text;
         string mobile = mobileInputField.text;
         string deviceID = DeviceId.text;
+        string refer = referInputField.text;
         if (string.IsNullOrEmpty(deviceID) || deviceID == "Editor_Device_ID")
         {
             ShowStatusMessage("Authorization failed. Please use a supported device.\r\n");
@@ -92,48 +94,66 @@ public class SignUpManager : MonoBehaviour
         ContinueBtn.transform.GetChild(1).gameObject.SetActive(true);
         Loading.gameObject.SetActive(true);
 
-        StartCoroutine(SendSignUpRequest(name,  mobile, deviceID));
+        StartCoroutine(SendSignUpRequest(name,  mobile, refer, deviceID));
         nameInputField.text = "";
         mobileInputField.text = "";
     }
 
-    public IEnumerator SendSignUpRequest(string name, string mobile, string deviceID)
+    public IEnumerator SendSignUpRequest(string name, string mobile, string refer, string deviceID)
     {
-        string jsonData = JsonUtility.ToJson(new UserRegistration { name = name, mobile = mobile, deviceId = deviceID });
+
+        string jsonData = JsonUtility.ToJson(new UserRegistration { name = name, mobile = mobile, referralId = refer, deviceId = deviceID });
 
         UnityWebRequest request = new UnityWebRequest(apiUrl, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-
+        Logger.Log("SignUp sent:" + jsonData);
         yield return request.SendWebRequest();
 
         string response = request.downloadHandler.text;
         Logger.Log("Response from API: " + response);
 
-        if ((response.Contains("User already exists")))
+        ApiResponse apiResponse = null;
+
+        try
         {
-            statusMessageText.text = response;
-            ShowErrorMessage("User already exists");
-            SignUpPanel.SetActive(false);
-            Loading.SetActive(false);
-            SignInPopUp.SetActive(true);
+            apiResponse = JsonUtility.FromJson<ApiResponse>(response);
         }
-        if (response.Contains("OTP generated. Please verify."))
+        catch
+        {
+            Logger.LogWarning("Failed to parse API response as JSON.");
+        }
+
+        if (apiResponse != null && apiResponse.message == "User already exists")
+        {
+            ShowStatusMessage("User already exists, please Sign In!");
+            ContinueBtn.transform.GetChild(0).gameObject.SetActive(true);
+            ContinueBtn.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        if (apiResponse != null && apiResponse.message == "Device already registered")
+        {
+            ShowStatusMessage("<color=red>This device is already linked to another account.\r\n</color>");
+            ContinueBtn.transform.GetChild(0).gameObject.SetActive(true);
+            ContinueBtn.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else if (apiResponse != null && apiResponse.message == "OTP generated. Please verify.")
         {
             Logger.Log("Sign-up successful, OTP generated. Navigating to OTP scene.");
+            PlayerPrefs.SetString("usermobile", mobile);
             PlayerPrefs.SetString("userName", name);
             PlayerPrefs.Save();
-            Loading.SetActive(false);
+            ContinueBtn.transform.GetChild(0).gameObject.SetActive(true);
+            ContinueBtn.transform.GetChild(1).gameObject.SetActive(false);
             SignUpPanel.SetActive(false);
+            SignInPanel.SetActive(false);
             OTPPanel.SetActive(true);
         }
         else
         {
             Logger.Log("Sign-up failed with response: " + response);
-            ShowStatusMessage("Sign-up failed: " + response);
-            Loading.gameObject.SetActive(false);
+            ShowStatusMessage("Sign-up failed. Please try again.");
             ContinueBtn.transform.GetChild(0).gameObject.SetActive(true);
             ContinueBtn.transform.GetChild(1).gameObject.SetActive(false);
         }
@@ -150,6 +170,7 @@ public class SignUpManager : MonoBehaviour
     {
         public string name;
         public string mobile;
+        public string referralId;
         public string deviceId;
     }
 
