@@ -22,7 +22,7 @@ public class SocketManager : MonoBehaviour
     private string socketId;
     private int steps;
     private User[] users;
-
+    private const string baseUrl = "https://sockets-klik.fivlog.space/";
     internal bool stopSearch = true;
 
     private float prizePool;
@@ -62,9 +62,9 @@ public class SocketManager : MonoBehaviour
 
     internal void InitializeSocket()
     {
-        var url = "https://backend-production-51f8.up.railway.app/";
+        //var url = "https://backend-production-51f8.up.railway.app/";
         //var url = "https://sockets-klik.fivlog.space/";
-        var uri = new Uri(url);
+        var uri = new Uri(baseUrl);
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             EIO = 4,
@@ -73,7 +73,7 @@ public class SocketManager : MonoBehaviour
         socket.JsonSerializer = new NewtonsoftJsonSerializer();
 
         socket.OnConnected += OnConnected;
-         socket.OnDisconnected += OnDisconnected;
+         //socket.OnDisconnected += OnDisconnected;
 
         Logger.Log("Connecting to server...");
         socket.Connect();

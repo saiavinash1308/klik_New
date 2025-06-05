@@ -43,8 +43,8 @@ public class HomePageManager : MonoBehaviour
 
     public Sprite[] avatarSprites;
     public Image[] avatarPreviewImages;
-    //private const string baseUrl = "https://sockets-klik.fivlog.space/";
-    private const string baseUrl = "https://backend-production-51f8.up.railway.app/";
+    private const string baseUrl = "https://sockets-klik.fivlog.space/";
+    //private const string baseUrl = "https://backend-production-51f8.up.railway.app/";
     public TMP_Text userCountText;
 
 

@@ -8,6 +8,7 @@ class AnalyseAndRegisterOnlinePlayers : MonoBehaviour
 
     public static AnalyseAndRegisterOnlinePlayers instance;
     private SocketManager socketManager;
+    public CountdownTimer CountdownTimer;
     private static string socketId;
     private void Awake()
     {
@@ -89,6 +90,7 @@ class AnalyseAndRegisterOnlinePlayers : MonoBehaviour
         MainThreadDispatcher.Enqueue(() =>
         {
             print("Start Game");
+            CountdownTimer.SetTimeAndStart(5f);
             UiManager.instance.uiPanel.SetActive(false);
             PawnType currentPawn = TempOnlinePlayersData.instance.GetPlayerPawnType(playersId[0]);
             print("CurrentPawn:" +  currentPawn);   

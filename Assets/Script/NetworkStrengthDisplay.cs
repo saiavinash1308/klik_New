@@ -20,7 +20,7 @@ public class NetworkStrengthDisplay : MonoBehaviour
         networkStrengthImage.rectTransform.anchorMin = new Vector2(1, 1);
         networkStrengthImage.rectTransform.anchorMax = new Vector2(1, 1);
         networkStrengthImage.rectTransform.pivot = new Vector2(1, 1);
-        networkStrengthImage.rectTransform.anchoredPosition = new Vector2(6,824); // Adjust position as needed
+        networkStrengthImage.rectTransform.anchoredPosition = new Vector2(-38,619); // Adjust position as needed
         networkStrengthImage.rectTransform.sizeDelta = new Vector2(32, 28); // Set icon size
         networkStrengthImage.rectTransform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
 

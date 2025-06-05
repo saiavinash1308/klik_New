@@ -26,7 +26,7 @@ public class FrameRateCounter : MonoBehaviour
         fpsText.rectTransform.anchorMin = new Vector2(1, 1);
         fpsText.rectTransform.anchorMax = new Vector2(1, 1);
         fpsText.rectTransform.pivot = new Vector2(1, 1);
-        fpsText.rectTransform.anchoredPosition = new Vector2(60, 825); // Adjust position as needed
+        fpsText.rectTransform.anchoredPosition = new Vector2(-24, 640); // Adjust position as needed
 
         // Set the initial scale of the FPS counter (optional)
         fpsText.rectTransform.localScale = new Vector3(0.4f, 0.4f, 0.4f); // Scale the FPS counter by 0.5x

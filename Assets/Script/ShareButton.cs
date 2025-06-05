@@ -24,7 +24,7 @@ public class ShareButton : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        Texture2D image = Resources.Load("Aviator", typeof(Texture2D)) as Texture2D;
+        Texture2D image = Resources.Load("image", typeof(Texture2D)) as Texture2D;
 
         if (image == null)
         {
@@ -43,8 +43,8 @@ public class ShareButton : MonoBehaviour
 
 
         string finalMessage = string.IsNullOrWhiteSpace(referralMessage)
-        ? "Referal feature coming soon\nDownload from here: https://aviator.klikgames.in"
-        : "Use my referral code: " + referralMessage + "\nDownload from here: https://aviator.klikgames.in";
+        ? "Referal feature coming soon\nDownload from here: https://klikgames.in"
+        : "Use my referral code: " + referralMessage + "\nDownload from here: https://klikgames.in";
 
         new NativeShare()
             .AddFile(filePath)

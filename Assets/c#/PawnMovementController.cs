@@ -12,6 +12,7 @@ public abstract class PawnMovementController : MonoBehaviour
     public int pawnNumber = 0;
     public int Lastspot = 0;
     public float speed = 5;
+    [SerializeField] private float returnToHomeSpeed = 7f;
     public Spot currentSpot;
     public GameObject home;
     public PawnType pawnType;
@@ -160,7 +161,7 @@ public abstract class PawnMovementController : MonoBehaviour
             diffrentBetweenHouseAndPawn = (home.transform.position - pawn.gameObject.transform.position).sqrMagnitude;
             pawn.gameObject.transform.position = Vector3.MoveTowards(pawn.gameObject.transform.position,
                 home.transform.position,
-                speed);
+                returnToHomeSpeed);
             yield return new WaitForEndOfFrame();
         }
         pawn.gameObject.transform.position = home.transform.position;

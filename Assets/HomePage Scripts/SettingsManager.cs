@@ -6,6 +6,7 @@ public class SettingsManager : MonoBehaviour
 {
     public GameObject Wallet;
     public GameObject Settings;
+    public GameObject Feedback;
 
     public Button LogOut;
 
@@ -19,6 +20,15 @@ public class SettingsManager : MonoBehaviour
     {
         SetAllPanelsInactive();
         panelToActivate.SetActive(true);
+    }
+    public void FeedBacktoggle()
+    {
+        Feedback.SetActive(true);
+    }
+
+    public void onClose()
+    {
+        Feedback.SetActive(false );
     }
 
     public void OnLogOut() 
